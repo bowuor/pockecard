@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/adminHeader.jsp">
-        <jsp:param name="title" value="PENSION"/>
+        <jsp:param name="title" value="POCKET CARD"/>
     </jsp:include>
 </head>
 <jsp:include page="/WEB-INF/jsp/common/adminHead.jsp"/>

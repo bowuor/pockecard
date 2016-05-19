@@ -297,10 +297,13 @@
             <li>
                 <a href="/admin/home"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
             </li>
-
+            <li>
+                <a href="/admin/school"><i class="fa fa-files-o"></i> <span>Schools</span></a>
+            </li>
             <li>
                 <a href="/admin/users"><i class="fa fa-files-o"></i> <span>Manage Users</span></a>
             </li>
+
 
         </ul>
     </section>

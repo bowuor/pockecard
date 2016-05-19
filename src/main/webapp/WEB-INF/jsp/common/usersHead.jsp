@@ -5,11 +5,11 @@
 <div class="wrapper">
  <header class="main-header">
     <!-- Logo -->
-    <a href="/employee/home" class="logo">
+    <a href="/users/home" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>E</b>P</span>
+        <span class="logo-mini"><b>A</b>P</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Employee</b>Portal</span>
+        <span class="logo-lg">Management<b></b>Panel</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -295,12 +295,17 @@
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li>
-                <a href="/employee/home"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
+                <a href="/users/home"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
+            </li>
+            
+            <li>
+                <a href="/users/student"><i class="fa fa-files-o"></i> <span>Students</span></a>
             </li>
 
             <li>
-                <a href="/employee/inquiries/my-inquiries"><i class="fa fa-files-o"></i> <span>Inquiries</span></a>
+                <a href="/users/items"><i class="fa fa-files-o"></i> <span>Items</span></a>
             </li>
+
         </ul>
     </section>
     <!-- /.sidebar -->
