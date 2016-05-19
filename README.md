@@ -27,5 +27,5 @@ Spring mvc application for pension system
 ## Packaging
 
 1. `mvn package`
-1. `java -jar target/Charity_Market-1.0-SNAPSHOT.war`
+1. `java -jar target/pktcard-1.0-SNAPSHOT.war`
  # pktCard
