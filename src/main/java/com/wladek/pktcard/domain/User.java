@@ -45,7 +45,6 @@ public class User extends AbstractModel{
     private String loginId;
 
     @Column(nullable = false)
-    @NotEmpty
     private String password;
 
     @Column(unique = true)

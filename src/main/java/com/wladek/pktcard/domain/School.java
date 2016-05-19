@@ -1,5 +1,7 @@
 package com.wladek.pktcard.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
@@ -11,7 +13,9 @@ import java.util.Set;
  */
 @Entity
 public class School extends AbstractModel{
+    @NotEmpty(message = "Provide school name")
     private String name;
+    @NotEmpty(message = "Provide school code")
     private String code;
 
     @OneToMany(mappedBy = "school" , fetch = FetchType.LAZY)

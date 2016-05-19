@@ -21,5 +21,5 @@
 package com.wladek.pktcard.domain.enumeration;
 
 public enum UserState {
-    ACTIVE, LOCKED, UserState, DELETED
+    ACTIVE,IN_ACTIVE ,  LOCKED, UserState, DELETED
 }

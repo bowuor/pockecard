@@ -48,13 +48,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         String[] permitAllUrls = new String[]{"/", "/users/signupform",
                 "/users/loginform", "/users/login", "/users/loginfailure",
-                "/users/logout", "/users/signup", "/test/**" , "/url-processor"};
+                "/users/logout", "/users/signup", "/test/**" , "/url_processor"};
 
         http.formLogin()
                 .loginPage("/users/loginform")
                 .loginProcessingUrl("/users/login")
                 .failureUrl("/users/loginfailure")
-                .defaultSuccessUrl("/url-processor")
+                .defaultSuccessUrl("/url_processor")
                 .permitAll()
                 .and()
             .logout()
@@ -65,13 +65,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
             .rememberMe()
                 .key("pktcard")
-                .tokenValiditySeconds(1296000)
+//                .tokenValiditySeconds(1296000)
+                .tokenValiditySeconds(86400)
                 .userDetailsService(userDetailsService())
                 .and()
             .authorizeRequests()
                 .antMatchers(permitAllUrls).permitAll()
-                .antMatchers("/admin/**").hasRole(UserRole.USER.name())
-                .antMatchers("/employee/**").hasRole(UserRole.EMPLOYEE.name())
+                .antMatchers("/admin/**").hasRole(UserRole.ADMIN.name())
+                .antMatchers("/users/**").hasRole(UserRole.USER.name())
+                .anyRequest().hasRole(UserRole.USER.name())
                 .anyRequest().hasRole(UserRole.ADMIN.name());
 
 

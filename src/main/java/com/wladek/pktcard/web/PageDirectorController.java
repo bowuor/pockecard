@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PageDirectorController {
 
-    @RequestMapping(value = "/url-processor" , method = RequestMethod.GET)
+    @RequestMapping("/url_processor")
     public String redirect(){
         UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -24,8 +24,8 @@ public class PageDirectorController {
             return "redirect:/admin/home" ;
         }
 
-        if (user.getUserRole().equals(UserRole.EMPLOYEE)){
-            return "redirect:/employee/home" ;
+        if (user.getUserRole().equals(UserRole.USER)){
+            return "redirect:/users/home" ;
         }
 
         return "redirect:/";

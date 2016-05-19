@@ -30,10 +30,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public User addNewUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setUserState(UserState.ACTIVE);
+
+        if(user.getUserState() == null){
+            user.setUserState(UserState.ACTIVE);
+        }
 
         if (user.getUserRole() == null){
-            user.setUserRole(UserRole.USER);
+            user.setUserRole(UserRole.ADMIN);
         }
 
         User newUser = repository.save(user);

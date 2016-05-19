@@ -1,5 +1,7 @@
 package com.wladek.pktcard.domain;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -10,9 +12,13 @@ import javax.persistence.OneToOne;
  */
 @Entity
 public class Student extends AbstractModel{
+    @NotEmpty(message = " Provide first name")
     private String firstName;
+    @NotEmpty(message = " Provide last name")
     private String lastName;
+    @NotEmpty(message = " Provide sir name")
     private String sirName;
+    @NotEmpty(message = " Provide registration number")
     private String regNumber;
 
     @OneToOne(mappedBy = "student" , fetch = FetchType.LAZY)

@@ -3,6 +3,8 @@ package com.wladek.pktcard.service;
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.repository.SchoolRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,5 +30,12 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public List<School> getAll() {
         return schoolRepo.findAll();
+    }
+
+    @Override
+    public Page<School> getAll(int page, int size) {
+        page = page -1;
+        PageRequest pageRequest = new PageRequest(page , size);
+        return schoolRepo.findAll(pageRequest);
     }
 }
