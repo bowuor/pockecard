@@ -161,6 +161,20 @@
                                     <h4>${user.school.name}</h4>
                                 </c:otherwise>
                             </c:choose>
+                            <div>
+                                <c:choose>
+                                    <c:when test="${user.userState != 'ACTIVE'}">
+                                        <a type="button" class="btn btn-default btn-sm" href="/admin/activate/${user.id}">
+                                            ACTIVATE
+                                        </a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a type="button" class="btn btn-default btn-sm" href="/admin/deactivate/${user.id}">
+                                            DE-ACTIVATE
+                                        </a>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
                         </div>
                     </c:when>
                 </c:choose>
