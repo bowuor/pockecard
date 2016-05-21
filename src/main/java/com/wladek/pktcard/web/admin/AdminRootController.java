@@ -142,4 +142,24 @@ public class AdminRootController {
 
         return "redirect:/admin/user/"+user.getId()+"/"+true;
     }
+
+    @RequestMapping(value = "/activate/{id}" , method = RequestMethod.GET)
+    public String activateUser(@PathVariable("id") Long id , RedirectAttributes redirectAttributes){
+        User user = userService.activateUser(id);
+
+        redirectAttributes.addFlashAttribute("message" , true);
+        redirectAttributes.addFlashAttribute("content" , user.getName()+" activated");
+
+        return "redirect:/admin/user/"+user.getId()+"/"+true;
+    }
+
+    @RequestMapping(value = "/deactivate/{id}" , method = RequestMethod.GET)
+    public String deActivateUser(@PathVariable("id") Long id , RedirectAttributes redirectAttributes){
+        User user = userService.deActivateUser(id);
+
+        redirectAttributes.addFlashAttribute("message" , true);
+        redirectAttributes.addFlashAttribute("content" , user.getName()+" de-activated");
+
+        return "redirect:/admin/user/"+user.getId()+"/"+true;
+    }
 }

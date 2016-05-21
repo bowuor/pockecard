@@ -84,4 +84,22 @@ public class UserServiceImpl implements UserService {
 
         schoolService.create(schoolInDb);
     }
+
+    @Override
+    public User activateUser(Long id) {
+        User userInDb = findById(id);
+
+        userInDb.setUserState(UserState.ACTIVE);
+
+        return repository.save(userInDb);
+    }
+
+    @Override
+    public User deActivateUser(Long id) {
+        User userInDb = findById(id);
+
+        userInDb.setUserState(UserState.LOCKED);
+
+        return repository.save(userInDb);
+    }
 }

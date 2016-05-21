@@ -21,4 +21,8 @@ public interface UserService {
     public User findById(Long id);
 
     public void setSchool(User user);
+
+    public User activateUser(Long id);
+
+    public User deActivateUser(Long id);
 }
