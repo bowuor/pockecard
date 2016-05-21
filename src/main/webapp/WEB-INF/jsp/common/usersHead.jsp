@@ -297,13 +297,13 @@
             <li>
                 <a href="/users/home"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
             </li>
-            
+
             <li>
                 <a href="/users/student"><i class="fa fa-files-o"></i> <span>Students</span></a>
             </li>
 
             <li>
-                <a href="/users/items"><i class="fa fa-files-o"></i> <span>Items</span></a>
+                <a href="/users/item"><i class="fa fa-files-o"></i> <span>Items</span></a>
             </li>
 
         </ul>

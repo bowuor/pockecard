@@ -17,7 +17,7 @@
 <%--body--%>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">MANAGEMENT</h3>
+        <h3 class="box-title">Pocket card manager</h3>
         <div class="box-tools">
             <%--<div class="input-group">--%>
                 <%--<input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>--%>
@@ -28,7 +28,14 @@
         </div>
     </div><!-- /.box-header -->
     <div class="box-body table-responsive no-padding">
-        <h3>Pocket card manager</h3>
+        <c:choose>
+            <c:when test="${school ==null}">
+                <h3> Not yet Assigned</h3>
+            </c:when>
+            <c:otherwise>
+                <h3>${school.name}</h3>
+            </c:otherwise>
+        </c:choose>
     </div>
 </div>
 <%--end body--%>

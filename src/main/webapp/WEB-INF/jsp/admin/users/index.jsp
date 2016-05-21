@@ -114,7 +114,7 @@
                                                     <td>${user.email}</td>
                                                     <td>${user.loginId}</td>
                                                     <td>
-                                                        <a href="#">Show</a>
+                                                        <a href="/admin/user/${user.id}/true">Show</a>
                                                     </td>
                                                     <td>
                                                         <a href="#">Delete</a>
@@ -129,14 +129,47 @@
                         </c:otherwise>
                     </c:choose>
                 </div>
+                <c:choose>
+                    <c:when test="${view}">
+                        <div class="col-sm-5">
+                            <h3>${user.name}</h3>
+                            <c:choose>
+                                <c:when test="${user.school == null}">
+                                    <h4>Assign school</h4>
+                                    <hr/>
+                                    <form:form acceptCharset="UTF-8" action="/admin/users/setschool" method="post" modelAttribute="user" cssClass="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="schoolId" class="col-sm-3 control-label">Choose School</label>
+                                            <div class="col-sm-9">
+                                                <select id="schoolId" name="schoolId" required="required">
+                                                    <option></option>
+                                                    <c:forEach items="${schools}" var="school">
+                                                        <option value="${school.id}">${school.name}</option>
+                                                    </c:forEach>
+                                                </select>
+                                                <form:input path="id" id="id" type="hidden"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-sm-10">
+                                                <input class="btn btn-success" type="submit" value="Submit">
+                                            </div>
+                                        </div>
+                                    </form:form>
+                                </c:when>
+                                <c:otherwise>
+                                    <h4>${user.school.name}</h4>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </c:when>
+                </c:choose>
                 <div class="col-sm-3">
                     <div style="margin-top: 50px">
                         <div class="box-body">
                             <c:choose>
-                                <c:when test="${roles}">
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
-                                        New Role
-                                    </button>
+                                <c:when test="${view}">
+
                                 </c:when>
                                 <c:otherwise>
                                     <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">

@@ -17,7 +17,7 @@
 <%--body--%>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">STUDENT(S) MANAGEMENT</h3>
+        <h3 class="box-title">SHOP ITEM(S) MANAGEMENT</h3>
         <div class="box-tools">
             <div class="input-group">
                 <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
@@ -48,35 +48,31 @@
             </div>
             <div class="box-body">
                 <div class="col-sm-7">
-                            <h3>Students</h3>
+                            <h3>Items</h3>
                             <div class="table-responsive">
                                 <c:choose>
-                                    <c:when test="${empty studentPage.content}">
+                                    <c:when test="${empty itemPage.content}">
                                         <div class="alert alert-war">
-                                            No Students registered
+                                            No Items available yet
                                         </div>
                                     </c:when>
                                     <c:otherwise>
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Sir name</th>
-                                                <th>Registration number</th>
+                                                <th>Name of item</th>
+                                                <th>Unit price(Ksh)</th>
+                                                <th>Description</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <c:forEach items="${studentPage.content}" var="student">
+                                            <c:forEach items="${itemPage.content}" var="item">
                                                 <tr>
-                                                    <td>${student.firstName}</td>
-                                                    <td>${student.lastName}</td>
-                                                    <td>${student.sirName}</td>
-                                                    <td>
-                                                        ${student.regNumber}
-                                                    </td>
+                                                    <td>${item.name}</td>
+                                                    <td>${item.unitPrice}</td>
+                                                    <td>${item.description}</td>
                                                     <td>
                                                         <a href="#">Show</a>
                                                     </td>
@@ -95,7 +91,7 @@
                     <div style="margin-top: 50px">
                         <div class="box-body">
                                     <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
-                                        Add Student
+                                        Add Item
                                     </button>
                         </div>
                     </div>
@@ -111,39 +107,32 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Register student</h4>
+                        <h4 class="modal-title" id="myModalLabel">Create shop item</h4>
                     </div>
                     <div class="modal-body">
                         <div class="box">
                             <div class="col-sm-9 col-sm-offset-1 col-md-10 col-md-offset-1 main">
-                                <form:form acceptCharset="UTF-8" action="/users/student/createStudent" method="post" modelAttribute="student" cssClass="form-horizontal" role="form">
+                                <form:form acceptCharset="UTF-8" action="/users/item/createItem" method="post" modelAttribute="item" cssClass="form-horizontal" role="form">
                                     <div class="form-group">
-                                        <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                                        <label for="name" class="col-sm-3 control-label">Name</label>
                                         <div class="col-sm-9">
-                                            <form:input path="firstName" id="firstName" type="text" cssClass="form-control" placeholder="Fisrt name" />
+                                            <form:input path="name" id="name" type="text" cssClass="form-control" placeholder="Name of item" />
                                             <form:input path="id" id="id" type="hidden"/>
-                                            <form:errors path="firstName" cssClass="form-inline" />
+                                            <form:errors path="name" cssClass="form-inline" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                                        <label for="unitPrice" class="col-sm-3 control-label">Unit Price</label>
                                         <div class="col-sm-9">
-                                            <form:input path="lastName" id="lastName" type="text" cssClass="form-control" placeholder="Last name" />
-                                            <form:errors path="lastName" cssClass="form-inline" />
+                                            <form:input path="unitPrice" id="unitPrice" type="text" cssClass="form-control" placeholder="Set unit price" />
+                                            <form:errors path="unitPrice" cssClass="form-inline" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="sirName" class="col-sm-3 control-label">Sir name</label>
+                                        <label for="description" class="col-sm-3 control-label">Description</label>
                                         <div class="col-sm-9">
-                                            <form:input path="sirName" id="sirName" cssClass="form-control" type="text" placeholder="Sir name" />
-                                            <form:errors path="sirName" cssClass="form-inline" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="sirName" class="col-sm-3 control-label">Registration number</label>
-                                        <div class="col-sm-9">
-                                            <form:input path="regNumber" id="regNumber" cssClass="form-control" type="text" placeholder="Registration/Admission number" />
-                                            <form:errors path="regNumber" cssClass="form-inline" />
+                                            <form:textarea path="description" id="description" cssClass="form-control" placeholder="Description of item"></form:textarea>
+                                            <form:errors path="description" cssClass="form-inline" />
                                         </div>
                                     </div>
                                     <div class="form-group">
