@@ -21,6 +21,9 @@ public class School extends AbstractModel{
     @OneToMany(mappedBy = "school" , fetch = FetchType.LAZY)
     private Set<Student> students;
 
+    @OneToMany(mappedBy = "school" , fetch = FetchType.LAZY)
+    private Set<Item> items;
+
     @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
@@ -54,5 +57,13 @@ public class School extends AbstractModel{
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
     }
 }

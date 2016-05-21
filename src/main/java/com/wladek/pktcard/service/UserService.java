@@ -17,4 +17,8 @@ public interface UserService {
     public List<User> findAll();
 
     public List<User> findByRole(UserRole userRole);
+
+    public User findById(Long id);
+
+    public void setSchool(User user);
 }

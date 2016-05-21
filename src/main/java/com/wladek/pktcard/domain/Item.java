@@ -1,7 +1,9 @@
 package com.wladek.pktcard.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Set;
 
@@ -10,12 +12,18 @@ import java.util.Set;
  */
 @Entity
 public class Item extends AbstractModel{
+    @NotEmpty(message = "Provide item name")
     private String name;
+    @NotNull(message = "Provide unit price in KSh")
     private BigDecimal unitPrice;
+    @NotEmpty(message = "Briefly describe item")
     private String description;
 
     @OneToMany(mappedBy = "item")
     private Set<Buying> buyingSet;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private School school;
 
     public String getName() {
         return name;
@@ -47,5 +55,13 @@ public class Item extends AbstractModel{
 
     public void setBuyingSet(Set<Buying> buyingSet) {
         this.buyingSet = buyingSet;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
     }
 }

@@ -1,9 +1,12 @@
 package com.wladek.pktcard.service;
 
+import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.User;
 import com.wladek.pktcard.domain.enumeration.UserRole;
 import com.wladek.pktcard.domain.enumeration.UserState;
 import com.wladek.pktcard.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -21,11 +24,15 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     UserRepository repository;
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+    @Autowired SchoolService schoolService;
 
     @Override
     public User addNewUser(User user) {
@@ -59,5 +66,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findByRole(UserRole userRole) {
         return repository.findByUserRole(userRole);
+    }
+
+    @Override
+    public User findById(Long id) {
+        return repository.getOne(id);
+    }
+
+    @Override
+    public void setSchool(User user) {
+
+        logger.info(" ********** USER ID = "+user.getId() + " *************** SCHOOL ID = "+user.getSchoolId());
+
+        School schoolInDb = schoolService.getOne(user.getSchoolId());
+
+        schoolInDb.setUser(findById(user.getId()));
+
+        schoolService.create(schoolInDb);
     }
 }

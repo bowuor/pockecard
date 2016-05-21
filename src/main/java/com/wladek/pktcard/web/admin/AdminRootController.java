@@ -12,10 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -49,6 +46,7 @@ public class AdminRootController {
 
         model.addAttribute("users" , users);
         model.addAttribute("user" , new User());
+        model.addAttribute("view" , false);
 
         return "/admin/users/index";
     }
@@ -62,8 +60,6 @@ public class AdminRootController {
         if(result.hasErrors()) {
 
             List<User> users = userService.findByRole(UserRole.USER);
-
-            System.out.print(" RESULTS "+result.toString());
 
             model.addAttribute("message" , true);
             model.addAttribute("content" , "Form has errors");
@@ -119,5 +115,31 @@ public class AdminRootController {
         redirectAttributes.addFlashAttribute("message" , true);
         redirectAttributes.addFlashAttribute("content" , " School created ");
         return "redirect:/admin/school";
+    }
+
+
+    @RequestMapping(value = "/user/{id}/{view}" , method = RequestMethod.GET)
+    public String viewUser(@PathVariable("id") Long id ,@PathVariable("view") boolean view, Model model){
+
+        User user = userService.findById(id);
+
+        List<School> schools = schoolService.getAll();
+
+        List<User> users = userService.findByRole(UserRole.USER);
+
+        model.addAttribute("users" , users);
+        model.addAttribute("schools" , schools);
+        model.addAttribute("user" , user);
+        model.addAttribute("view" , view);
+
+        return "/admin/users/index";
+    }
+
+    @RequestMapping(value = "/users/setschool" , method = RequestMethod.POST)
+    public String setSchool(@ModelAttribute("user") User user, Model model){
+
+        userService.setSchool(user);
+
+        return "redirect:/admin/user/"+user.getId()+"/"+true;
     }
 }

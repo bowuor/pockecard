@@ -66,6 +66,10 @@ public class User extends AbstractModel{
     @OneToOne(mappedBy = "user" , fetch = FetchType.LAZY)
     private School school;
 
+
+    @Transient
+    private Long schoolId;
+
     public String getName() {
         return name;
     }
@@ -144,5 +148,13 @@ public class User extends AbstractModel{
 
     public void setSchool(School school) {
         this.school = school;
+    }
+
+    public Long getSchoolId() {
+        return schoolId;
+    }
+
+    public void setSchoolId(Long schoolId) {
+        this.schoolId = schoolId;
     }
 }
