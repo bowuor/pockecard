@@ -30,7 +30,7 @@
     <div class="box-body">
         <div class="box">
             <div class="box-header">
-                <div class="box-tools">
+                <%--<div class="box-tools">
                     <a type="button" class="btn btn-primary btn-sm" href="#">
                         Users
                     </a>
@@ -38,7 +38,7 @@
                     <a type="button" class="btn btn-primary btn-sm" href="#">
                         Roles
                     </a>
-                </div>
+                </div>--%>
 
                 <c:if test="${message}">
                     <div class="alert alert-success">
@@ -47,7 +47,7 @@
                 </c:if>
             </div>
             <div class="box-body">
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                             <h3>Schools</h3>
                             <div class="table-responsive">
                                 <c:choose>
@@ -73,10 +73,10 @@
                                                     <td>${school.name}</td>
                                                     <td>${school.code}</td>
                                                     <td>
-                                                        <a href="#">Show</a>
+                                                        <a href="#">View</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#">Delete</a>
+                                                        <a href="#">Remove</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -89,7 +89,7 @@
                 <div class="col-sm-3">
                     <div style="margin-top: 50px">
                         <div class="box-body">
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
                                         ADD SCHOOL
                                     </button>
                         </div>

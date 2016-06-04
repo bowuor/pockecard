@@ -17,8 +17,9 @@
 <%--body--%>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">ADMIN</h3>
+        <h3 class="box-title">SUPER ADMIN</h3>
         <div class="box-tools">
+
             <%--<div class="input-group">--%>
                 <%--<input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>--%>
                 <%--<div class="input-group-btn">--%>
@@ -28,7 +29,6 @@
         </div>
     </div><!-- /.box-header -->
     <div class="box-body table-responsive no-padding">
-        <h3>Pocket card admin</h3>
     </div>
 </div>
 <%--end body--%>

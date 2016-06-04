@@ -17,6 +17,7 @@
 
 <!-- Bootstrap core CSS -->
 <link type="text/css" href="/resources/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" href="/resources/components/bootstrap/dist/css/animate.min.css" rel="stylesheet">
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script type="application/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>

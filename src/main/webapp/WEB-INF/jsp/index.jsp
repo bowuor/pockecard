@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/head.jsp">
-        <jsp:param name="title" value="PENSION"/>
+        <jsp:param name="title" value="POCKECARD"/>
     </jsp:include>
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>
@@ -16,7 +16,58 @@
 
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- contact section -->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-center">
+                <div class="section-title">
+                    <h1> &nbsp;</h1>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div>
+                    <h3>NOTICEBOARD</h3>
+                    <hr>
+                </div>
+                <div id="notice" class="col-md-12 col-sm-12">
+                    <p>POCKECARD is still under development<br>Login to see the trial version with the following credentials:</p>
+                    <p>User: test<br>Password: test1234</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <h3>FEEDBACK & SUPPORT</h3>
+                <hr>
+                <div class="col-md-6 col-sm-4">
+                    <p>EMAIL: <a href="mailto:support@pockecard.co.ke">support@pockecard.co.ke</a></p>
+                </div>
+                <div>
+                    <p>PHONES: 0725-980-165 | 0726-457-704</p>
+                </div>
+                <div>
+                    <form action="#" method="get">
+                        <div class="col-md-6 col-sm-6">
+                            <input type="text" class="form-control" placeholder="Name" name="name">
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input type="email" class="form-control" placeholder="Email" name="email">
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <textarea class="form-control" placeholder="Message" rows="7" name="message"></textarea>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <input type="submit" class="form-control" value="SEND MESSAGE">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<%--<div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -25,7 +76,7 @@
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="/resources/images/images.jpg" alt="First slide">
+            <img src="/resources/images/breaktime.jpg" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
                     <h1>Example headline.</h1>
@@ -57,7 +108,9 @@
     </div>
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
     <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div><!-- /.carousel -->
+</div>--%>
+
+<!-- /.carousel -->
 
 
 
@@ -65,7 +118,7 @@
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="container marketing">
+<%--<div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -128,18 +181,17 @@
         </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider">--%>
 
     <!-- /END THE FEATURETTES -->
 
 
     <!-- FOOTER -->
     <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <h5 style="text-align: center;">&copy; 2016-POCKECARD &middot; All Rights Reserved &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a> &middot; Powered by <a href="https://necxuss.co.ke">Necxuss</a></h5>
     </footer>
 
-</div><!-- /.container -->
+</div<!-- /.container -->
 
 
 <!-- Bootstrap core JavaScript
