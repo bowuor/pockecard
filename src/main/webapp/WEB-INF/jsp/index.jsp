@@ -11,7 +11,7 @@
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>
 
-<body style="background-color: #000">
+<body>
 <jsp:include page="/WEB-INF/jsp/common/topmenu.jsp"/>
 
 <!-- Carousel
@@ -24,7 +24,6 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 text-center">
                         <div class="section-title">
-                            <h1> &nbsp;</h1>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
@@ -78,7 +77,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="/resources/images/breaktime.jpg" alt="First slide">
+                <img src="/resources/images/pocke.png" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption ">
                         <h1>Pocket Money Management</h1>
@@ -88,7 +87,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/resources/images/images-1.jpg" alt="Second slide">
+                <img src="/resources/images/breaktime.jpg" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>School Fees Provision</h1>
@@ -101,7 +100,7 @@
                 <img src="/resources/images/3.jpg" alt="Third slide">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>A united fraternity for success</h1>
+                        <h1>A fraternity united for success</h1>
                         <p></p>
                         <%--<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>--%>
                     </div>

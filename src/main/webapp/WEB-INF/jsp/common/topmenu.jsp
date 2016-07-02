@@ -27,6 +27,9 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="about">About</a></li>
                     <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/contact">Support</a></li>
+                    <li><a href="/contact">Pricing</a></li>
+                    <li><a href="/contact">Blog</a></li>
                     <li><a href="/users/loginform">Login</a></li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
