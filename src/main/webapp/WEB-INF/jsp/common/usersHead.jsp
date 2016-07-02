@@ -5,7 +5,7 @@
 <div class="wrapper">
  <header class="main-header">
     <!-- Logo -->
-    <a href="/users/home" class="logo">
+    <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>A</b>P</span>
         <!-- logo for regular state and mobile devices -->
@@ -238,7 +238,7 @@
                                 <a href="#">Sales</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
+                                <a href="/">Noticeboard</a>
                             </div>
                         </li>
                         <!-- Menu Footer-->

@@ -6,110 +6,112 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/head.jsp">
-        <jsp:param name="title" value="POCKECARD"/>
+        <jsp:param name="title" value="POCKECARD | About"/>
     </jsp:include>
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: #000">
 <jsp:include page="/WEB-INF/jsp/common/topmenu.jsp"/>
 
 <!-- Carousel
 ================================================== -->
 <!-- contact section -->
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12 text-center">
-                <div class="section-title">
-                    <h1> &nbsp;</h1>
+<sec:authorize access="isAuthenticated()">
+    <sec:authentication property="principal" var="principal" />
+        <section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <div class="section-title">
+                            <h1> &nbsp;</h1>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div>
+                            <h3>NOTICEBOARD</h3>
+                            <hr>
+                        </div>
+                        <div id="notice" class="col-md-12 col-sm-12">
+                            <p>POCKECARD is still under development<br>Login to see the trial version with the following credentials:</p>
+                            <p>User: test<br>Password: test1234</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <h3>FEEDBACK & SUPPORT</h3>
+                        <hr>
+                        <div class="col-md-6 col-sm-4">
+                            <p>EMAIL: <a href="mailto:support@pockecard.co.ke">support@pockecard.co.ke</a></p>
+                        </div>
+                        <div>
+                            <p>PHONES: 0725-980-165 | 0726-457-704</p>
+                        </div>
+                        <div>
+                            <form action="#" method="get">
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Name" name="name">
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="email" class="form-control" placeholder="Email" name="email">
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <textarea class="form-control" placeholder="Message" rows="7" name="message"></textarea>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <input type="submit" class="form-control" value="SEND MESSAGE">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <div>
-                    <h3>NOTICEBOARD</h3>
-                    <hr>
-                </div>
-                <div id="notice" class="col-md-12 col-sm-12">
-                    <p>POCKECARD is still under development<br>Login to see the trial version with the following credentials:</p>
-                    <p>User: test<br>Password: test1234</p>
+        </section>
+</sec:authorize>
+
+<sec:authorize access="isAnonymous()">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="/resources/images/breaktime.jpg" alt="First slide">
+                <div class="container">
+                    <div class="carousel-caption ">
+                        <h1>Pocket Money Management</h1>
+                        <p>PockeCard help schools manage goods sold at school canteens and allows parents monitor how pocket money is spent at school.</p>
+                        <%--<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>--%>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-12">
-                <h3>FEEDBACK & SUPPORT</h3>
-                <hr>
-                <div class="col-md-6 col-sm-4">
-                    <p>EMAIL: <a href="mailto:support@pockecard.co.ke">support@pockecard.co.ke</a></p>
+            <div class="item">
+                <img src="/resources/images/images-1.jpg" alt="Second slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>School Fees Provision</h1>
+                        <p></p>
+                        <%--<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>--%>
+                    </div>
                 </div>
-                <div>
-                    <p>PHONES: 0725-980-165 | 0726-457-704</p>
-                </div>
-                <div>
-                    <form action="#" method="get">
-                        <div class="col-md-6 col-sm-6">
-                            <input type="text" class="form-control" placeholder="Name" name="name">
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input type="email" class="form-control" placeholder="Email" name="email">
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                            <textarea class="form-control" placeholder="Message" rows="7" name="message"></textarea>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input type="submit" class="form-control" value="SEND MESSAGE">
-                        </div>
-                    </form>
+            </div>
+            <div class="item">
+                <img src="/resources/images/3.jpg" alt="Third slide">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>A united fraternity for success</h1>
+                        <p></p>
+                        <%--<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>--%>
+                    </div>
                 </div>
             </div>
         </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     </div>
-</section>
-
-
-
-<%--<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="/resources/images/breaktime.jpg" alt="First slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="/resources/images/images-1.jpg" alt="Second slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="/resources/images/images-2.jpg" alt="Third slide">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-</div>--%>
-
+</sec:authorize>
 <!-- /.carousel -->
 
 
@@ -191,7 +193,7 @@
         <h5 style="text-align: center;">&copy; 2016-POCKECARD &middot; All Rights Reserved &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a> &middot; Powered by <a href="https://necxuss.co.ke">Necxuss</a></h5>
     </footer>
 
-</div<!-- /.container -->
+<!-- /.container -->
 
 
 <!-- Bootstrap core JavaScript

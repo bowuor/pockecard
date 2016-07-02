@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/resources/images/favicon.ico">
 
-    <title>POCKECARD</title>
+    <title>POCKECARD | LOGIN</title>
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="/resources/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,47 +28,48 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="body-Login-back">
 
 <jsp:include page="/WEB-INF/jsp/common/topmenu.jsp"/>
 
-<div class="container-fluid"/>
+<div class="container">
     <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Log in</h1>
-
-            <form:form acceptCharset="UTF-8" action="/users/login" method="post" cssClass="form-horizontal" role="form">
-                <div class="form-group">
-                    <label for="username" class="col-sm-2 control-label">Username</label>
-                    <div class="col-sm-4">
-                        <input type="text" name="username" id="username" class="form-control" placeholder="LoginId or Email address" required autofocus>
-                    </div>
+        <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
+            <%--<img src="assets/img/logo.png" alt=""/>--%>
+        </div>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
                 </div>
-                <div class="form-group">
-                    <label for="password" class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-4">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-                    </div>
+                <div class="panel-body">
+                    <form:form acceptCharset="UTF-8" action="/users/login" method="post" cssClass="form-horizontal" role="form">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username or Email" required autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                            </div>
+                        </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input class="login-btn btn-success" type="submit" value="Login">
+                            </div>
+                        </div>
+                    </form:form>
                 </div>
-                <div class="form-group">
-                    <label class=" col-sm-2 control-label">
-                        Remember me
-                    </label>
-                    <div class="col-sm-1 col-sm-offset-0">
-                        <input type="checkbox" class="form-control" checked="checked"
-                               name="remember-me">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input class="btn btn-success" type="submit" value="Submit">
-                    </div>
-                </div>
-            </form:form>
+            </div>
         </div>
     </div>
 </div>
-
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

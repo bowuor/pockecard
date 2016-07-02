@@ -38,7 +38,7 @@
             </div>
             <div class="box-body">
                 <div class="col-sm-7">
-                            <h3>Students</h3>
+                            <h4>Student List</h4>
                             <div class="table-responsive">
                                 <c:choose>
                                     <c:when test="${empty studentPage.content}">
@@ -50,10 +50,10 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Sir name</th>
-                                                <th>Registration number</th>
+                                                <th>FirstName</th>
+                                                <th>LastName</th>
+                                                <th>SurName</th>
+                                                <th>Reg. Number</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
