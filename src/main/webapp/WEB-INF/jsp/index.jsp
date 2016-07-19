@@ -166,8 +166,8 @@
                     <ul class="social-icon">
                         <li><a href="https://facebook.com/PockeCardKE"><img src="/resources/images/facebook.png"></a></li>
                         <li><a href="https://twitter.com/PockeCardKE"><img src="/resources/images/twitter.png"></a></li>
-                        <li><a href="#"><img src="/resources/images/instagram.png"></a></li>
-                        <li><a href="#"><img src="/resources/images/YouTube.png"></a></li>
+                        <%--<li><a href="#"><img src="/resources/images/instagram.png"></a></li>
+                        <li><a href="#"><img src="/resources/images/YouTube.png"></a></li>--%>
                     </ul>
                 </div>
             </div>

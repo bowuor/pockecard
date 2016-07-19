@@ -64,5 +64,8 @@
 
 <!-- Footer -->
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+
+<script src="/resources/components/jquery/dist/jquery.min.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
