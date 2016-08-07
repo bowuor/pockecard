@@ -1703,6 +1703,7 @@ a:focus {
   font-size: 18px;
   margin: 0;
   line-height: 1;
+  font-weight: bold;
 }
 .box-header > .fa,
 .box-header > .glyphicon,
@@ -2319,7 +2320,7 @@ a:focus {
   border-color: #e08e0b;
 }
 .alert-info {
-  border-color: #00acd6;
+  border-color: none;
 }
 /*
  * Component: Nav
@@ -4001,7 +4002,7 @@ fieldset[disabled] .btn-vk.active {
 .alert-info,
 .label-info,
 .modal-info .modal-body {
-  background-color: #00c0ef !important;
+  background-color: #5cb85c !important;
 }
 .bg-blue {
   background-color: #0073b7 !important;

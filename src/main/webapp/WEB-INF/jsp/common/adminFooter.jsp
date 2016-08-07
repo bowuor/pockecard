@@ -28,6 +28,10 @@ immediately after the control sidebar -->
 </div><!-- ./wrapper -->
 <%--boostrap js--%>
 <script type="application/javascript" src="/resources/components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="/resources/js/morris/morris.js"></script>
+<script src="/resources/js/morris/raphael-2.1.0.min.js"></script>
+<script src="/resources/js/dashboard-demo.js"></script>
 <%--<script>--%>
     <%--$.widget.bridge('uibutton', $.ui.button);--%>
 <%--</script>--%>

@@ -45,7 +45,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome ${principal.user.name}!<span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/users/home">Management panel</a></li>
+                            <li><a href="/user/home">Management panel</a></li>
                             <li><a href="/users/logout">Logout</a></li>
                         </ul>
                     </li>

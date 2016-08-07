@@ -226,13 +226,13 @@
                                     <sec:authentication property="principal" var="principal"/>
                                     <span class="hidden-xs">${principal.user.loginId}</span>
                                 </sec:authorize>
-                                <small>Member since Nov. 2012</small>
+                                <small>School Manager</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
-                            <div class="col-xs-4 text-center">
-                                <a href="/">Site</a>
+                            <div class="col-xs-12 text-center">
+                                <a href="/">Site Home</a>
                             </div>
                         </li>
                         <!-- Menu Footer-->

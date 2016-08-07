@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/adminHeader.jsp">
-        <jsp:param name="title" value="POCKET CARD"/>
+        <jsp:param name="title" value="POCKECARD"/>
     </jsp:include>
 </head>
 <jsp:include page="/WEB-INF/jsp/common/adminHead.jsp"/>
@@ -18,14 +18,6 @@
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">SCHOOL MANAGEMENT</h3>
-        <div class="box-tools">
-            <div class="input-group">
-                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
-                <div class="input-group-btn">
-                    <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </div>
     </div><!-- /.box-header -->
     <div class="box-body">
         <div class="box">

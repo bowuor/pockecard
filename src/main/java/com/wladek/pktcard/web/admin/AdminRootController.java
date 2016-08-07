@@ -162,4 +162,10 @@ public class AdminRootController {
 
         return "redirect:/admin/user/"+user.getId()+"/"+true;
     }
+
+
+    @RequestMapping(value = "/reports" , method = RequestMethod.GET)
+    public String getReportPage() {
+        return "/admin/users/reports";
+    }
 }
