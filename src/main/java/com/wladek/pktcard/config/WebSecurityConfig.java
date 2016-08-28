@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        String[] permitAllUrls = new String[]{"/", "/users/signupform",
+        String[] permitAllUrls = new String[]{"/","/api/**" , "/users/signupform",
                 "/users/loginform", "/users/login", "/users/loginfailure",
                 "/users/logout", "/users/signup", "/test/**" , "/url_processor"};
 
