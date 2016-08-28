@@ -1,6 +1,6 @@
 package com.wladek.pktcard;
 
-import com.mysql.jdbc.Driver;
+import org.postgresql.Driver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
@@ -18,9 +18,9 @@ public class TestConfiguration {
     public DataSource dataSource() throws SQLException {
         SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
         dataSource.setDriver(new Driver());
-        dataSource.setUrl("jdbc:mysql://localhost:3306/pensiondb");
-        dataSource.setUsername("root");
-        dataSource.setPassword("teresa");
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/pktcard");
+        dataSource.setUsername("potgres");
+        dataSource.setPassword("tech@2016");
         return dataSource;
     }
 
