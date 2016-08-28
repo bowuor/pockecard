@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/adminHeader.jsp">
-        <jsp:param name="title" value="POCKET CARD"/>
+        <jsp:param name="title" value="POCKECARD"/>
     </jsp:include>
 </head>
 <jsp:include page="/WEB-INF/jsp/common/usersHead.jsp"/>
@@ -17,29 +17,19 @@
 <%--body--%>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">SHOP ITEM(S) MANAGEMENT</h3>
-        <div class="box-tools">
+        <h3 class="box-title">SHOP MANAGEMENT</h3>
+        <%--<div class="box-tools">
             <div class="input-group">
                 <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
                 <div class="input-group-btn">
                     <button class="btn btn-sm btn-default"><i class="fa fa-search"></i></button>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div><!-- /.box-header -->
     <div class="box-body">
         <div class="box">
             <div class="box-header">
-                <div class="box-tools">
-                    <a type="button" class="btn btn-primary btn-sm" href="/admin/users">
-                        Users
-                    </a>
-                    &nbsp;&nbsp;
-                    <a type="button" class="btn btn-primary btn-sm" href="/admin/users?roles=true">
-                        Roles
-                    </a>
-                </div>
-
                 <c:if test="${message}">
                     <div class="alert alert-success">
                             ${content}
@@ -47,8 +37,8 @@
                 </c:if>
             </div>
             <div class="box-body">
-                <div class="col-sm-7">
-                            <h3>Items</h3>
+                <div class="col-sm-8">
+                            <h4>Item List</h4>
                             <div class="table-responsive">
                                 <c:choose>
                                     <c:when test="${empty itemPage.content}">
@@ -60,8 +50,8 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>Name of item</th>
-                                                <th>Unit price(Ksh)</th>
+                                                <th>Item</th>
+                                                <th>Price(Ksh)</th>
                                                 <th>Description</th>
                                                 <th></th>
                                                 <th></th>
@@ -74,7 +64,7 @@
                                                     <td>${item.unitPrice}</td>
                                                     <td>${item.description}</td>
                                                     <td>
-                                                        <a href="#">Show</a>
+                                                        <a href="#">View</a>
                                                     </td>
                                                     <td>
                                                         <a href="#">Delete</a>

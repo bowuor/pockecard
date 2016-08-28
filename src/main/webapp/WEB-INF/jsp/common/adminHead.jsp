@@ -301,7 +301,7 @@
                 <a href="/admin/school"><i class="fa fa-files-o"></i> <span>Schools</span></a>
             </li>
             <li>
-                <a href="/admin/users"><i class="fa fa-files-o"></i> <span>Manage Users</span></a>
+                <a href="/admin/users"><i class="fa fa-files-o"></i> <span>Users</span></a>
             </li>
 
 

@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/adminHeader.jsp">
-        <jsp:param name="title" value="POCKET CARD"/>
+        <jsp:param name="title" value="POCKECARD"/>
     </jsp:include>
 </head>
 <jsp:include page="/WEB-INF/jsp/common/usersHead.jsp"/>
@@ -17,7 +17,7 @@
 <%--body--%>
 <div class="box">
     <div class="box-header with-border">
-        <h3 class="box-title">STUDENT(S) MANAGEMENT</h3>
+        <h3 class="box-title">STUDENTS MANAGEMENT</h3>
         <div class="box-tools">
             <div class="input-group">
                 <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="Search"/>
@@ -30,16 +30,6 @@
     <div class="box-body">
         <div class="box">
             <div class="box-header">
-                <div class="box-tools">
-                    <a type="button" class="btn btn-primary btn-sm" href="/admin/users">
-                        Users
-                    </a>
-                    &nbsp;&nbsp;
-                    <a type="button" class="btn btn-primary btn-sm" href="/admin/users?roles=true">
-                        Roles
-                    </a>
-                </div>
-
                 <c:if test="${message}">
                     <div class="alert alert-success">
                             ${content}
@@ -48,7 +38,7 @@
             </div>
             <div class="box-body">
                 <div class="col-sm-7">
-                            <h3>Students</h3>
+                            <h4>Student List</h4>
                             <div class="table-responsive">
                                 <c:choose>
                                     <c:when test="${empty studentPage.content}">
@@ -60,10 +50,10 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Sir name</th>
-                                                <th>Registration number</th>
+                                                <th>FirstName</th>
+                                                <th>LastName</th>
+                                                <th>SurName</th>
+                                                <th>Reg. Number</th>
                                                 <th></th>
                                                 <th></th>
                                             </tr>
@@ -78,7 +68,7 @@
                                                         ${student.regNumber}
                                                     </td>
                                                     <td>
-                                                        <a href="#">Show</a>
+                                                        <a href="#">View</a>
                                                     </td>
                                                     <td>
                                                         <a href="#">Delete</a>
@@ -111,7 +101,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Register student</h4>
+                        <h4 class="modal-title" id="myModalLabel">Register Student</h4>
                     </div>
                     <div class="modal-body">
                         <div class="box">
@@ -147,7 +137,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-10">
+                                        <div class="col-sm-offset-3 col-sm-10" style="float: right">
                                             <input class="btn btn-success" type="submit" value="Submit">
                                         </div>
                                     </div>
@@ -156,7 +146,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
     </div>

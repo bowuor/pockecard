@@ -30,7 +30,7 @@
     <div class="box-body">
         <div class="box">
             <div class="box-header">
-                <div class="box-tools">
+                <%--<div class="box-tools">
                     <a type="button" class="btn btn-primary btn-sm" href="/admin/users">
                         Users
                     </a>
@@ -38,7 +38,7 @@
                     <a type="button" class="btn btn-primary btn-sm" href="/admin/users?roles=true">
                         Roles
                     </a>
-                </div>
+                </div>--%>
 
                 <c:if test="${message}">
                     <div class="alert alert-success">
@@ -47,7 +47,7 @@
                 </c:if>
             </div>
             <div class="box-body">
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <c:choose>
                         <c:when test="${roles}">
                             <h3>Roles</h3>
@@ -74,10 +74,10 @@
                                                     <td>${role.name}</td>
                                                     <td>${role.description}</td>
                                                     <td>
-                                                        <a href="#">Show</a>
+                                                        <a href="#">View</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#">Delete</a>
+                                                        <a href="#">Remove</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -114,10 +114,10 @@
                                                     <td>${user.email}</td>
                                                     <td>${user.loginId}</td>
                                                     <td>
-                                                        <a href="/admin/user/${user.id}/true">Show</a>
+                                                        <a href="/admin/user/${user.id}/true">View</a>
                                                     </td>
                                                     <td>
-                                                        <a href="#">Delete</a>
+                                                        <a href="#">Remove</a>
                                                     </td>
                                                 </tr>
                                             </c:forEach>
@@ -131,7 +131,7 @@
                 </div>
                 <c:choose>
                     <c:when test="${view}">
-                        <div class="col-sm-5">
+                        <div class="col-sm-3">
                             <h3>${user.name}</h3>
                             <c:choose>
                                 <c:when test="${user.school == null}">
@@ -139,8 +139,8 @@
                                     <hr/>
                                     <form:form acceptCharset="UTF-8" action="/admin/users/setschool" method="post" modelAttribute="user" cssClass="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="schoolId" class="col-sm-3 control-label">Choose School</label>
-                                            <div class="col-sm-9">
+                                            <label for="schoolId" class="col-sm-3 control-label">Select</label>
+                                            <div class="col-sm-6">
                                                 <select id="schoolId" name="schoolId" required="required">
                                                     <option></option>
                                                     <c:forEach items="${schools}" var="school">
@@ -150,9 +150,9 @@
                                                 <form:input path="id" id="id" type="hidden"/>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-3 col-sm-10">
-                                                <input class="btn btn-success" type="submit" value="Submit">
+                                        <div class="form-group" style="float: left">
+                                            <div class="col-sm-offset-3 col-sm-3">
+                                                <input class="btn btn-success btn-sm" type="submit" value="ASIGN">
                                             </div>
                                         </div>
                                     </form:form>
@@ -161,15 +161,15 @@
                                     <h4>${user.school.name}</h4>
                                 </c:otherwise>
                             </c:choose>
-                            <div>
+                            <div style="float: right">
                                 <c:choose>
                                     <c:when test="${user.userState != 'ACTIVE'}">
-                                        <a type="button" class="btn btn-default btn-sm" href="/admin/activate/${user.id}">
+                                        <a type="button" class="btn btn-success btn-sm" href="/admin/activate/${user.id}">
                                             ACTIVATE
                                         </a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a type="button" class="btn btn-default btn-sm" href="/admin/deactivate/${user.id}">
+                                        <a type="button" class="btn btn-danger btn-sm" href="/admin/deactivate/${user.id}">
                                             DE-ACTIVATE
                                         </a>
                                     </c:otherwise>
@@ -186,7 +186,7 @@
 
                                 </c:when>
                                 <c:otherwise>
-                                    <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
                                         New User
                                     </button>
                                 </c:otherwise>
@@ -246,8 +246,8 @@
             <c:otherwise>
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">User Form</h4>
+                        <button type="button" class="btn btn-success btn-sm" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">New User</h4>
                     </div>
                     <div class="modal-body">
                         <div class="box">
@@ -262,7 +262,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="loginId" class="col-sm-3 control-label">User Name</label>
+                                        <label for="loginId" class="col-sm-3 control-label">Username</label>
                                         <div class="col-sm-9">
                                             <form:input path="loginId" id="loginId" type="text" cssClass="form-control" placeholder="User Name" />
                                             <form:input path="id" id="id" type="hidden"/>
@@ -277,8 +277,8 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-10">
-                                            <input class="btn btn-success" type="submit" value="Submit">
+                                        <div class="col-sm-offset-3 col-sm-3">
+                                            <input class="btn btn-success btn-sm" type="submit" value="Submit">
                                         </div>
                                     </div>
                                 </form:form>
@@ -286,8 +286,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+
                     </div>
                 </div>
             </c:otherwise>

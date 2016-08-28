@@ -4,6 +4,7 @@ spring:
      url: jdbc:postgresql://localhost:5432/pktcard
      username: postgres
      password: tech@2016
+
  jpa: # JPA
     database_platform: org.hibernate.dialect.PostgreSQLDialect
     openInView: true
