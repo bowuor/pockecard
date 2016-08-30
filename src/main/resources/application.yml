@@ -3,7 +3,7 @@ spring:
      driverClassName: org.postgresql.Driver
      url: jdbc:postgresql://localhost:5432/pktcard
      username: postgres
-     password: tech@2016
+     password:
 
  jpa: # JPA
     database_platform: org.hibernate.dialect.PostgreSQLDialect

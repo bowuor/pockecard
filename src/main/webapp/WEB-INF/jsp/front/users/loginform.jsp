@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/resources/images/favicon.ico">
+    <link rel="icon" href="/resources/images/ic_launcher2.png">
 
     <title>POCKECARD | LOGIN</title>
 
@@ -36,6 +36,13 @@
             <img src="/resources/images/logosmall.png" alt=""/>
         </div>
         <div class="col-md-4 col-md-offset-4">
+            <c:if test="${isFailed}">
+                <div class="col-md-12">
+                    <div class="alert alert-danger">
+                        <span class="red-text text-darken-2">Login failed due to ${SPRING_SECURITY_LAST_EXCEPTION.message}</span>
+                    </div>
+                </div>
+            </c:if>
             <div class="login-panel panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Sign in</h3>

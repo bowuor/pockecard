@@ -55,4 +55,12 @@ public class Card extends AbstractModel{
     public void setTransactions(Set<CardTransaction> transactions) {
         this.transactions = transactions;
     }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }
