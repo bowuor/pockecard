@@ -1,12 +1,19 @@
 package com.wladek.pktcard.service;
 
+import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;
+import com.wladek.pktcard.domain.User;
+import com.wladek.pktcard.pojo.ItemDto;
+import com.wladek.pktcard.pojo.LoginDetails;
+import com.wladek.pktcard.pojo.SchoolDetails;
 import com.wladek.pktcard.repository.SchoolRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +23,12 @@ import java.util.List;
 public class SchoolServiceImpl implements SchoolService {
     @Autowired
     SchoolRepo schoolRepo;
+    @Autowired
+    UserService userService;
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    @Autowired
+    ItemService itemService;
 
     @Override
     public School create(School school) {
@@ -37,5 +50,72 @@ public class SchoolServiceImpl implements SchoolService {
         page = page -1;
         PageRequest pageRequest = new PageRequest(page , size);
         return schoolRepo.findAll(pageRequest);
+    }
+
+    @Override
+    public SchoolDetails getBySchoolCode(SchoolDetails schoolDetails) {
+
+        School school = schoolRepo.findByCode(schoolDetails.getSchoolCode());
+
+         if (school != null){
+             schoolDetails = new SchoolDetails();
+             schoolDetails.setSchoolName(school.getName());
+             schoolDetails.setSchoolCode(school.getCode());
+         }else {
+             schoolDetails = null;
+         }
+
+        return schoolDetails;
+    }
+
+    @Override
+    public SchoolDetails authSchoolAdmin(LoginDetails loginDetails) {
+
+        User user = userService.findByLoginIdOrEmail(loginDetails.getUserName());
+
+        SchoolDetails schoolDetails = new SchoolDetails();
+
+        if (user != null){
+
+            boolean matched = passwordEncoder.matches(loginDetails.getPassword() , user.getPassword());
+
+            if (matched){
+
+                schoolDetails.setLoggedIn(true);
+                schoolDetails.setLogInResponse("SUCCESS");
+
+                if (user.getSchool() != null){
+                    School school = user.getSchool();
+                    schoolDetails.setSchoolCode(school.getCode());
+                    schoolDetails.setSchoolName(school.getName());
+                }else{
+                    schoolDetails.setLoggedIn(false);
+                    schoolDetails.setLogInResponse("FAILED");
+                }
+
+            }else{
+                schoolDetails.setLoggedIn(false);
+                schoolDetails.setLogInResponse("FAILED");
+            }
+
+        }else {
+            schoolDetails.setLoggedIn(false);
+            schoolDetails.setLogInResponse("FAILED");
+        }
+
+        return schoolDetails;
+    }
+
+    @Override
+    public List<ItemDto> getSchoolItems(SchoolDetails schoolDetails) {
+        School school = schoolRepo.findByCode(schoolDetails.getSchoolCode());
+
+        List<ItemDto> itemDtos = new ArrayList<>();
+
+        for (Item i : itemService.findBySchool(school)){
+            itemDtos.add(i.toDto());
+        }
+
+        return itemDtos;
     }
 }

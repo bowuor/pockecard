@@ -3,10 +3,11 @@ package com.wladek.pktcard.pojo;
 /**
  * Created by wladek on 8/3/16.
  */
-public class LogInApp {
+public class SchoolDetails {
     private String schoolName;
+    private String schoolCode;
     private Boolean loggedIn;
-    private String password;
+    private String logInResponse;
 
     public String getSchoolName() {
         return schoolName;
@@ -20,15 +21,23 @@ public class LogInApp {
         return loggedIn;
     }
 
+    public String getSchoolCode() {
+        return schoolCode;
+    }
+
+    public void setSchoolCode(String schoolCode) {
+        this.schoolCode = schoolCode;
+    }
+
     public void setLoggedIn(Boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
 
-    public String getPassword() {
-        return password;
+    public String getLogInResponse() {
+        return logInResponse;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLogInResponse(String logInResponse) {
+        this.logInResponse = logInResponse;
     }
 }

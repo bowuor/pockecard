@@ -1,7 +1,14 @@
 package com.wladek.pktcard.web.api;
 
-import com.wladek.pktcard.pojo.LogInApp;
+import com.wladek.pktcard.domain.Item;
+import com.wladek.pktcard.pojo.ItemDto;
+import com.wladek.pktcard.pojo.LoginDetails;
+import com.wladek.pktcard.pojo.SchoolDetails;
+import com.wladek.pktcard.service.SchoolService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by wladek on 8/3/16.
@@ -11,9 +18,24 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/api")
 public class MobileApi {
 
-    @RequestMapping(value = "/test" , method = RequestMethod.POST , produces = "application/json", consumes = "application/json")
+    @Autowired
+    SchoolService schoolService;
+
+    @RequestMapping(value = "/school_login" , produces = "application/json", consumes = "application/json")
     @ResponseBody
-    public LogInApp testLogin(@RequestBody LogInApp logInApp){
-        return logInApp;
+    public SchoolDetails loginSchool(@RequestBody LoginDetails loginDetails){
+        return schoolService.authSchoolAdmin(loginDetails);
+    }
+
+    @RequestMapping(value = "/school_details" , produces = "application/json", consumes = "application/json")
+    @ResponseBody
+    public SchoolDetails getSchoolDetails(@RequestBody SchoolDetails schoolDetails){
+        return schoolService.getBySchoolCode(schoolDetails);
+    }
+
+    @RequestMapping(value = "/school_items" , produces = "application/json", consumes = "application/json")
+    @ResponseBody
+    public List<ItemDto> getSchoolItems(@RequestBody SchoolDetails schoolDetails){
+        return schoolService.getSchoolItems(schoolDetails);
     }
 }

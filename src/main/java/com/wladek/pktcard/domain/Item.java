@@ -1,5 +1,6 @@
 package com.wladek.pktcard.domain;
 
+import com.wladek.pktcard.pojo.ItemDto;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -72,5 +73,16 @@ public class Item extends AbstractModel{
 
     public void setItemCode(String itemCode) {
         this.itemCode = itemCode;
+    }
+
+    public ItemDto toDto(){
+
+        ItemDto dto = new ItemDto();
+        dto.setName(name);
+        dto.setUnitPrice(unitPrice);
+        dto.setDescription(description);
+        dto.setItemCode(itemCode);
+
+        return dto;
     }
 }

@@ -29,11 +29,11 @@ public class UserValidator {
             result.rejectValue("loginId", "user.loginId.duplicate", "Username already registered, try another one.");
         }
 
-        List<User> users = repository.findByUserRole(UserRole.ADMIN);
-
-        if (users.size() > 0){
-            result.rejectValue("loginId", "user.loginId.duplicate", "Illegal sign up");
-        }
+//        List<User> users = repository.findByUserRole(UserRole.ADMIN);
+//
+//        if (users.size() > 0){
+//            result.rejectValue("loginId", "user.loginId.duplicate", "Illegal sign up");
+//        }
 
         return result.hasErrors();
     }
