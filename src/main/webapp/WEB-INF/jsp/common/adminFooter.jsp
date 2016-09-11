@@ -32,6 +32,14 @@ immediately after the control sidebar -->
 <script src="/resources/js/morris/morris.js"></script>
 <script src="/resources/js/morris/raphael-2.1.0.min.js"></script>
 <script src="/resources/js/dashboard-demo.js"></script>
+<script type='text/javascript'>
+    $(".sidebar-menu>li").each(function() {
+        var navItem = $(this);
+        if (navItem.find("a").attr("href") == location.pathname) {
+            navItem.addClass("active");
+        }
+    });
+</script>
 <%--<script>--%>
     <%--$.widget.bridge('uibutton', $.ui.button);--%>
 <%--</script>--%>

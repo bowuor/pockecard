@@ -98,7 +98,7 @@
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
-            <li class="header">MAIN MENU</li>
+            <li class="header">NAVIGATION</li>
             <li>
                 <a href="/admin/home"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
             </li>

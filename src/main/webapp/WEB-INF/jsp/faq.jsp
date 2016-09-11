@@ -115,7 +115,7 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-                                <p>Go to Mpesa <br> Lipa na Mpesa <br> Paybill Number 000000 <br> Account Number is the student number* <h6><em>(*e.g. MGHS1234 - where MGHS is the school code & 1234 the student admission number)</em></h6></p>
+                                <p>Go to Mpesa <br> Lipa na Mpesa <br> Paybill Number 779387 <br> Account Number is the student number* <h6></p>
                             </div>
                         </div>
                     </div>

@@ -125,7 +125,7 @@
                 <div class="panel panel-primary text-center no-boder">
                     <div class="panel-body yellow">
                         <i class="fa fa-bar-chart-o fa-3x"></i>
-                        <h3></h3>
+                        <h3>800,000</h3>
                     </div>
                     <div>
                         <a href="#" class="btn btn-default btn-block">Total Students</a>
