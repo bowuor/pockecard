@@ -34,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
                     int n = 10000000 + rnd.nextInt(900000000);
                     itemInDb.setItemCode(n + "");
             }
-            
+
             return itemRepo.save(itemInDb);
 
         }
