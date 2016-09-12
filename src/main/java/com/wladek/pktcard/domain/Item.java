@@ -78,13 +78,19 @@ public class Item extends AbstractModel{
 
     @PrePersist
     public void generateCode(){
-
         Random rnd = new Random();
-
-        int n = 100000 + rnd.nextInt(900000);
-
+        int n = 10000000 + rnd.nextInt(900000000);
         itemCode = n+"";
+    }
 
+    @PreUpdate
+    public void updateCode(){
+
+        if(itemCode == null) {
+            Random rnd = new Random();
+            int n = 10000000 + rnd.nextInt(900000000);
+            itemCode = n + "";
+        }
     }
 
     public ItemDto toDto(){
