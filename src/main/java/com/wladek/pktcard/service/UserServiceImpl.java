@@ -102,4 +102,21 @@ public class UserServiceImpl implements UserService {
 
         return repository.save(userInDb);
     }
+
+    @Override
+    public User findByLoginIdOrEmail(String loginIdOrEmail) {
+        User user = repository.findByLoginId(loginIdOrEmail);
+
+        if(user != null) {
+            return user;
+        }
+
+        user = repository.findByEmail(loginIdOrEmail);
+
+        if(user != null) {
+            return user;
+        }
+
+        return null;
+    }
 }

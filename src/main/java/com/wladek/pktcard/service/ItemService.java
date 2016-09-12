@@ -14,4 +14,5 @@ public interface ItemService {
     public Item getOne(Long id);
     public List<Item> listItems();
     public Page<Item> findBySchool(School school , int page , int size);
+    public List<Item> findBySchool(School school);
 }

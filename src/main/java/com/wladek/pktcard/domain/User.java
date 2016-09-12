@@ -41,7 +41,7 @@ public class User extends AbstractModel{
 
     @Column(unique = true, nullable = false)
     @NotEmpty
-    @Pattern(regexp = LOGIN_ID_PATTERN, message = "user.wrongloginId.alert")
+    @Pattern(regexp = LOGIN_ID_PATTERN, message = "Illegal user name")
     private String loginId;
 
     @Column(nullable = false)

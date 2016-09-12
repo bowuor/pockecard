@@ -7,10 +7,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by wladek on 5/17/16.
  */
 @Repository
 public interface ItemRepo extends JpaRepository<Item , Long>{
     Page<Item> findBySchool(Pageable pageable , School school);
+    List<Item> findBySchool(School school);
 }

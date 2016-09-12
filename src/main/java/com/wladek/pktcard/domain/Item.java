@@ -1,5 +1,6 @@
 package com.wladek.pktcard.domain;
 
+import com.wladek.pktcard.pojo.ItemDto;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Item extends AbstractModel{
     private BigDecimal unitPrice;
     @NotEmpty(message = "Briefly describe item")
     private String description;
+    private String itemCode;
 
     @OneToMany(mappedBy = "item")
     private Set<Buying> buyingSet;
@@ -63,5 +65,24 @@ public class Item extends AbstractModel{
 
     public void setSchool(School school) {
         this.school = school;
+    }
+
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
+    public ItemDto toDto(){
+
+        ItemDto dto = new ItemDto();
+        dto.setName(name);
+        dto.setUnitPrice(unitPrice);
+        dto.setDescription(description);
+        dto.setItemCode(itemCode);
+
+        return dto;
     }
 }

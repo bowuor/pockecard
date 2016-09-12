@@ -39,4 +39,9 @@ public class ItemServiceImpl implements ItemService {
         PageRequest pageRequest = new PageRequest(page ,size);
         return itemRepo.findBySchool(pageRequest , school);
     }
+
+    @Override
+    public List<Item> findBySchool(School school) {
+        return itemRepo.findBySchool(school);
+    }
 }

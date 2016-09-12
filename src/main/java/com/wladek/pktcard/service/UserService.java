@@ -25,4 +25,6 @@ public interface UserService {
     public User activateUser(Long id);
 
     public User deActivateUser(Long id);
+
+    public User findByLoginIdOrEmail(String loginId);
 }

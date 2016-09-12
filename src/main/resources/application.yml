@@ -1,14 +1,15 @@
 spring:
  datasource:
-     driverClassName: com.mysql.jdbc.Driver
-     url: jdbc:mysql://localhost:3306/pktcard
-     username: root
-     password: tech!123
+     driverClassName: org.postgresql.Driver
+     url: jdbc:postgresql://localhost:5432/pktcard
+     username: postgres
+     password:
+
  jpa: # JPA
-    database_platform: org.hibernate.dialect.MySQLDialect
+    database_platform: org.hibernate.dialect.PostgreSQLDialect
     openInView: true
     show-sql: false
-    database: mysql
+    database: POSTGRESQL
     hibernate.ddl-auto: update
  view:
     prefix: /WEB-INF/jsp/

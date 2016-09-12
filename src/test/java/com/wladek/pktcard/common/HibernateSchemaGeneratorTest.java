@@ -1,9 +1,9 @@
 package com.wladek.pktcard.common;
 
 import com.wladek.pktcard.TestConfiguration;
-import com.mysql.jdbc.Driver;
+import org.hibernate.dialect.PostgreSQLDialect;
+import org.postgresql.Driver;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.dialect.MySQL5Dialect;
 import org.hibernate.tool.hbm2ddl.DatabaseMetadata;
 import org.hibernate.tool.hbm2ddl.SchemaUpdateScript;
 import org.junit.Before;
@@ -27,16 +27,16 @@ public class HibernateSchemaGeneratorTest {
 
     @Autowired DataSource dataSource;
     Configuration cfg;
-    MySQL5Dialect dialect = new MySQL5Dialect();
+    PostgreSQLDialect dialect = new PostgreSQLDialect();
 
     @Before
     public void setup() {
         cfg = new Configuration();
-        cfg.setProperty("hibernate.dialect", MySQL5Dialect.class.getName());
+        cfg.setProperty("hibernate.dialect", PostgreSQLDialect.class.getName());
         cfg.setProperty("hibernate.connection.driver_class", Driver.class.getName());
-        cfg.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/pensiondb");
-        cfg.setProperty("hibernate.connection.username", "root");
-        cfg.setProperty("hibernate.connection.password", "teresa");
+        cfg.setProperty("hibernate.connection.url", "jdbc:postgresql://localhost:5432/pktcard");
+        cfg.setProperty("hibernate.connection.username", "postgres");
+        cfg.setProperty("hibernate.connection.password", "tech@2016");
         cfg.setNamingStrategy(new org.hibernate.cfg.ImprovedNamingStrategy());
     }
 
