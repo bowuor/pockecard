@@ -64,7 +64,7 @@
                                                     <td>${item.unitPrice}</td>
                                                     <td>${item.description}</td>
                                                     <td>
-                                                        <a href="#">View</a>
+                                                        <a href="/users/item/${item.id}">View</a>
                                                     </td>
                                                     <td>
                                                         <a href="#">Delete</a>
