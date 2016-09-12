@@ -18,7 +18,7 @@ public class StudentEndpoint {
     private StudentUtility studentUtility;
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getStudentRequest")
     @ResponsePayload
-    public GetStudentResponse getCountry(@RequestPayload GetStudentRequest request) {
+    public GetStudentResponse getStudent(@RequestPayload GetStudentRequest request) {
         GetStudentResponse response = new GetStudentResponse();
         response.setStudent(studentUtility.getStudent(request.getStudentId()));
         return response;
