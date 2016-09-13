@@ -35,7 +35,9 @@ public class MobileApi {
 
     @RequestMapping(value = "/school_items/{schoolCode}" , produces = "application/json" , method = RequestMethod.GET)
     @ResponseBody
-    public List<ItemDto> getSchoolItems(@PathVariable("schoolCode") String schoolCode){
-        return schoolService.getSchoolItems(schoolCode);
+    public ItemDto[] getSchoolItems(@PathVariable("schoolCode") String schoolCode){
+        List<ItemDto> itemDtos = schoolService.getSchoolItems(schoolCode);
+        ItemDto[] itemArray = new ItemDto[itemDtos.size()];
+        return itemDtos.toArray(itemArray);
     }
 }
