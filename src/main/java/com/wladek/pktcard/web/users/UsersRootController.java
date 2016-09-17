@@ -100,7 +100,7 @@ public class UsersRootController {
         Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool(), page, size);
 
         model.addAttribute("itemPage", itemPage);
-        model.addAttribute("pagenatedUrl", "/users/item");
+        model.addAttribute("pagenatedUrl", "/users/items");
         model.addAttribute("item", new Item());
 
         return "/users/items";
@@ -116,7 +116,7 @@ public class UsersRootController {
             Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool(), page, size);
 
             model.addAttribute("itemPage", itemPage);
-            model.addAttribute("pagenatedUrl", "/users/item");
+            model.addAttribute("pagenatedUrl", "/users/items");
             model.addAttribute("item", item);
 
             model.addAttribute("message", true);
