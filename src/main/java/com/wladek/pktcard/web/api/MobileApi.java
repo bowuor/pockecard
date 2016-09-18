@@ -33,9 +33,11 @@ public class MobileApi {
         return schoolService.getBySchoolCode(schoolDetails);
     }
 
-    @RequestMapping(value = "/school_items" , produces = "application/json", consumes = "application/json")
+    @RequestMapping(value = "/school_items/{schoolCode}" , produces = "application/json" , method = RequestMethod.GET)
     @ResponseBody
-    public List<ItemDto> getSchoolItems(@RequestBody SchoolDetails schoolDetails){
-        return schoolService.getSchoolItems(schoolDetails);
+    public ItemDto[] getSchoolItems(@PathVariable("schoolCode") String schoolCode){
+        List<ItemDto> itemDtos = schoolService.getSchoolItems(schoolCode);
+        ItemDto[] itemArray = new ItemDto[itemDtos.size()];
+        return itemDtos.toArray(itemArray);
     }
 }

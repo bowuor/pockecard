@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Random;
 import java.util.Set;
 
 /**
@@ -73,6 +74,13 @@ public class Item extends AbstractModel{
 
     public void setItemCode(String itemCode) {
         this.itemCode = itemCode;
+    }
+
+    @PrePersist
+    public void generateCode(){
+        Random rnd = new Random();
+        int n = 10000000 + rnd.nextInt(900000000);
+        itemCode = n+"";
     }
 
     public ItemDto toDto(){

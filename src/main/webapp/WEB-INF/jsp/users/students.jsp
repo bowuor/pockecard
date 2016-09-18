@@ -75,6 +75,12 @@
                                                     </td>
                                                 </tr>
                                             </c:forEach>
+                                            <tr>
+                                                <jsp:include page="/WEB-INF/jsp/common/pagination.jsp">
+                                                    <jsp:param name="paginatedRecord" value="studentPage"/>
+                                                    <jsp:param name="url" value="${pagenatedUrl}"/>
+                                                </jsp:include>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </c:otherwise>

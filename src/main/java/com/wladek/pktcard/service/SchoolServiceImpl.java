@@ -107,8 +107,8 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
-    public List<ItemDto> getSchoolItems(SchoolDetails schoolDetails) {
-        School school = schoolRepo.findByCode(schoolDetails.getSchoolCode());
+    public List<ItemDto> getSchoolItems(String schoolCode) {
+        School school = schoolRepo.findByCode(schoolCode);
 
         List<ItemDto> itemDtos = new ArrayList<>();
 

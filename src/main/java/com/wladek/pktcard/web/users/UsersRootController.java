@@ -13,10 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -34,120 +31,147 @@ public class UsersRootController {
     @Autowired
     ItemService itemService;
 
-    @RequestMapping(value = "/home" , method = RequestMethod.GET)
-    public String userRoot(Model model){
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String userRoot(Model model) {
 
         School school = getLogInUser().getSchool();
 
-        model.addAttribute("school" , school);
+        model.addAttribute("school", school);
 
         return "/users/index";
     }
 
-    @RequestMapping(value = "/school" , method = RequestMethod.GET)
-    public String school(Model model){
+    @RequestMapping(value = "/school", method = RequestMethod.GET)
+    public String school(Model model) {
         return "/users/index";
     }
 
-    @RequestMapping(value = "/student" , method = RequestMethod.GET)
-    public String students(@RequestParam(value = "page" , required = false , defaultValue = "1") int page,
-                           @RequestParam(value = "size" , required = false , defaultValue = "10") int size,
-                           Model model){
+    @RequestMapping(value = "/student", method = RequestMethod.GET)
+    public String students(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                           @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                           Model model) {
 
-        Page<Student> studentPage = studentService.findBySchool(page , size , getLogInUser().getSchool());
+        Page<Student> studentPage = studentService.findBySchool(page, size, getLogInUser().getSchool());
 
-        model.addAttribute("student" , new Student());
-        model.addAttribute("studentPage" , studentPage);
-        model.addAttribute("pagenatedUrl" , "/users/student");
+        model.addAttribute("student", new Student());
+        model.addAttribute("studentPage", studentPage);
+        model.addAttribute("pagenatedUrl", "/users/student");
 
         return "/users/students";
     }
 
-    @RequestMapping(value = "/student/createStudent" , method = RequestMethod.POST)
-    public String postStudent(@ModelAttribute @Valid Student student , BindingResult  bindingResult ,
-                              @RequestParam(value = "page" , required = false , defaultValue = "1") int page,
-                              @RequestParam(value = "size" , required = false , defaultValue = "10") int size,
-                              RedirectAttributes redirectAttributes, Model model){
+    @RequestMapping(value = "/student/createStudent", method = RequestMethod.POST)
+    public String postStudent(@ModelAttribute @Valid Student student, BindingResult bindingResult,
+                              @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                              @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                              RedirectAttributes redirectAttributes, Model model) {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             Page<Student> studentPage = studentService.findBySchool(page, size, getLogInUser().getSchool());
 
-            model.addAttribute("student" , student);
-            model.addAttribute("studentPage" , studentPage);
-            model.addAttribute("pagenatedUrl" , "/users/student");
-            model.addAttribute("message" , true);
-            model.addAttribute("content" , "form has error, click add student to view");
+            model.addAttribute("student", student);
+            model.addAttribute("studentPage", studentPage);
+            model.addAttribute("pagenatedUrl", "/users/student");
+            model.addAttribute("message", true);
+            model.addAttribute("content", "form has error, click add student to view");
 
             return "/users/students";
         }
 
-        if (getLogInUser().getSchool() != null){
+        if (getLogInUser().getSchool() != null) {
             student.setSchool(getLogInUser().getSchool());
             studentService.create(student);
 
-            redirectAttributes.addFlashAttribute("message" ,true);
-            redirectAttributes.addFlashAttribute("content" , " Student created ");
+            redirectAttributes.addFlashAttribute("message", true);
+            redirectAttributes.addFlashAttribute("content", " Student created ");
 
-        }else {
-            redirectAttributes.addFlashAttribute("message" ,true);
-            redirectAttributes.addFlashAttribute("content" , "Oops!!!, You have not been assigned a school");
+        } else {
+            redirectAttributes.addFlashAttribute("message", true);
+            redirectAttributes.addFlashAttribute("content", "Oops!!!, You have not been assigned a school");
         }
 
         return "redirect:/users/student";
     }
 
-    @RequestMapping(value = "/item" , method = RequestMethod.GET)
-    public String listItems(@RequestParam(value = "page" , required = false , defaultValue = "1") int page,
-                            @RequestParam(value = "size" , required = false , defaultValue = "10") int size,Model model){
+    @RequestMapping(value = "/items", method = RequestMethod.GET)
+    public String listItems(@RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                            @RequestParam(value = "size", required = false, defaultValue = "10") int size, Model model) {
 
-        Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool() , page , size);
+        Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool(), page, size);
 
-        model.addAttribute("itemPage" , itemPage);
-        model.addAttribute("pagenatedUrl" , "/users/item");
-        model.addAttribute("item" , new Item());
+        model.addAttribute("itemPage", itemPage);
+        model.addAttribute("pagenatedUrl", "/users/items");
+        model.addAttribute("item", new Item());
 
         return "/users/items";
     }
 
-    @RequestMapping(value = "/item/createItem" , method = RequestMethod.POST)
-    public String postItem(@ModelAttribute @Valid Item item , BindingResult result , RedirectAttributes redirectAttributes,
-                           @RequestParam(value = "page" , required = false , defaultValue = "1") int page,
-                           @RequestParam(value = "size" , required = false , defaultValue = "10") int size,
-                           Model model){
+    @RequestMapping(value = "/item/createItem", method = RequestMethod.POST)
+    public String postItem(@ModelAttribute @Valid Item item, BindingResult result, RedirectAttributes redirectAttributes,
+                           @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                           @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                           Model model) {
 
-        if (result.hasErrors()){
-            Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool() , page , size);
+        if (result.hasErrors()) {
+            Page<Item> itemPage = itemService.findBySchool(getLogInUser().getSchool(), page, size);
 
-            model.addAttribute("itemPage" , itemPage);
-            model.addAttribute("pagenatedUrl" , "/users/item");
-            model.addAttribute("item" , item);
+            model.addAttribute("itemPage", itemPage);
+            model.addAttribute("pagenatedUrl", "/users/items");
+            model.addAttribute("item", item);
 
-            model.addAttribute("message" , true);
-            model.addAttribute("content" , "form has error, click Add Item to view");
+            model.addAttribute("message", true);
+            model.addAttribute("content", "form has error, click Add Item to view");
 
             return "/users/items";
         }
 
-        if(getLogInUser().getSchool() == null){
+        if (getLogInUser().getSchool() == null) {
 
-            redirectAttributes.addFlashAttribute("message" , true);
-            redirectAttributes.addFlashAttribute("content" , "Oops!!!, you have not been assigned a school, consult admin");
+            redirectAttributes.addFlashAttribute("message", true);
+            redirectAttributes.addFlashAttribute("content", "Oops!!!, you have not been assigned a school, consult admin");
 
-        }else{
+        } else {
 
             item.setSchool(getLogInUser().getSchool());
             Item newIem = itemService.create(item);
 
-            redirectAttributes.addFlashAttribute("message" , true);
-            redirectAttributes.addFlashAttribute("content" , newIem.getName() + " added");
+            redirectAttributes.addFlashAttribute("message", true);
+            redirectAttributes.addFlashAttribute("content", newIem.getName() + " added");
         }
 
-
-        return "redirect:/users/item";
+        return "redirect:/users/items";
 
     }
 
-    private User getLogInUser(){
+    @RequestMapping(value = "/item/{id}", method = RequestMethod.GET)
+    public String getItem(@PathVariable("id") Long id, Model model) {
+        Item item = itemService.getOne(id);
+        model.addAttribute("item", item);
+        return "/users/item";
+    }
+
+    @RequestMapping(value = "/item/updateItem", method = RequestMethod.POST)
+    public String updateItem(@ModelAttribute @Valid Item item, BindingResult result, RedirectAttributes redirectAttributes,
+                             Model model) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("item", item);
+            model.addAttribute("message", true);
+            model.addAttribute("content", "form has error, click Add Item to view");
+
+            return "/users/item";
+        }
+
+        Item updatedIem = itemService.create(item);
+
+        redirectAttributes.addFlashAttribute("message", true);
+        redirectAttributes.addFlashAttribute("content", updatedIem.getName() + " updated");
+
+        return "redirect:/users/item/" + item.getId();
+
+    }
+
+    private User getLogInUser() {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 

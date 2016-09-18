@@ -19,5 +19,5 @@ public interface SchoolService {
     public Page<School> getAll(int page , int size);
     public SchoolDetails getBySchoolCode(SchoolDetails schoolDetails);
     public SchoolDetails authSchoolAdmin(LoginDetails loginDetails);
-    public List<ItemDto> getSchoolItems(SchoolDetails schoolDetails);
+    public List<ItemDto> getSchoolItems(String schoolCode);
 }

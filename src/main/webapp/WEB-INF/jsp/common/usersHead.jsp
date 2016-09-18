@@ -297,7 +297,7 @@
             </li>
 
             <li>
-                <a href="/users/item"><i class="fa fa-files-o"></i> <span>Items</span></a>
+                <a href="/users/items"><i class="fa fa-files-o"></i> <span>Items</span></a>
             </li>
 
         </ul>

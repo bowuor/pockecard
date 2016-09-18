@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by wladek on 5/17/16.
@@ -20,6 +21,24 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item create(Item item) {
+
+        if (item.getId() != null){
+
+            Item itemInDb = getOne(item.getId());
+            itemInDb.setName(item.getName());
+            itemInDb.setUnitPrice(item.getUnitPrice());
+            itemInDb.setDescription(item.getDescription());
+
+            if (itemInDb.getItemCode() == null){
+                    Random rnd = new Random();
+                    int n = 10000000 + rnd.nextInt(900000000);
+                    itemInDb.setItemCode(n + "");
+            }
+
+            return itemRepo.save(itemInDb);
+
+        }
+
         return itemRepo.save(item);
     }
 
