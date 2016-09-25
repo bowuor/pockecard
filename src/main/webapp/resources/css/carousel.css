@@ -3,7 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 
-}
+
 
 
 /* CUSTOMIZE THE NAVBAR
@@ -89,6 +89,7 @@
     font-style: italic;
     font-size: 21px;
     line-height: 1.4;
+    color: #5cb85c;
   }
 
   .featurette-heading {
@@ -123,9 +124,9 @@ contact section
   padding-left: 15px;
 }
 #contact .medium-icon {
-  padding-top: 10px;
-  padding-right: 10px;
-
+    padding-top: 10px;
+    padding-right: 10px;
+}
 
 
 /* ==========================================================================
