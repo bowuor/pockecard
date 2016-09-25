@@ -19,7 +19,6 @@
                     <li><a href="https://www.necxuss.co.ke" target="_blank">Necxuss Technologies</a></li>
                     <!--<li><a href="#">Education Ministry</a></li>
                     <li><a href="#">KNUT</a></li>-->
->>>>>>> master
                 </ul>
             </div>
             <div class="col-footer col-md-3 col-xs-6">
