@@ -156,10 +156,10 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 contact-info">
-                <div class="col-md-12 col-sm-8">
+                <div class="col-md-3 col-xs-6 text-center">
                     <h3><i data-wow-delay="0.6s"></i>Call us:</h3>
                     <p>0725-980-165</p>
-                    <p>0726-457-704</p>
+                    <p>0704-033-581</p>
                 </div>
                 <div class="col-md-12 col-sm-8">
                     <h3><i data-wow-delay="0.6s"></i>Follow us:</h3>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
-                <h3><i data-wow-delay="0.6s"></i>Send us a message:</h3>
+                <h3><i data-wow-delay="0.6s"></i>Drop us a message:</h3>
                 <form action="mailto:info@pockecard.com" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
                     <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Name" name="name">
@@ -181,9 +181,9 @@
                         <input type="email" class="form-control" placeholder="Email" name="email">
                     </div>
                     <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control" placeholder="Message" rows="7" name="message"></textarea>
+                        <textarea class="form-control" placeholder="Message/comment/suggestion" rows="7" name="message"></textarea>
                     </div>
-                    <div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8">
+                    <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-4" style="float: right">
                         <input type="submit" class="form-control" value="SEND MESSAGE">
                     </div>
                 </form>
