@@ -48,7 +48,7 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-                                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias</p>
+                                <p>Parents top-up their students' card via mpesa and the value received in real time.<br>Students make payments using their cards at the school canteen and the same is deducted from their card balance on every transaction.</p>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-                                <p>Pellentesque in velit et enim porta aliquam. Curabitur eget ligula dui, a euismod lectus. Phasellus eget facilisis nulla. Suspendisse sit amet dui nisl.</p>
+                                <p>Joining PockeCard is done through member schools.<br>A school can become a member by applying for registration through the <a href="http://www.pockecard.com">website</a></p>
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-                                <p>Aenean nec mi a nisl molestie pretium nec sed velit. Vestibulum ultrices, arcu vitae varius pulvinar, justo sapien mollis dui, eget dapibus massa felis sed nulla. Maecenas in varius nulla. Praesent mollis diam vitae libero sollicitudin commodo lobortis tortor tempor. Fusce rutrum orci consequat nunc ultricies egestas. Sed vitae tortor sapien. Vivamus ac libero eu arcu aliquet pretium eu vitae sem. Sed tincidunt varius pellentesque.</p>
+                                <p>All schools both Boarding and Day are eligible for membership as long as they are committed to promoting a cashless policy within the school in order to curb vices, reduce indiscipline and exercise control</p>
                             </div>
                         </div>
                     </div>
@@ -115,7 +115,11 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
+<<<<<<< HEAD
                                 <p>Go to Mpesa <br> Lipa na Mpesa <br> Paybill Number 779387 <br> Account Number is the student number* <h6></p>
+=======
+                                <p>Go to <strong>Mpesa</strong> <br> Lipa na Mpesa <br> Paybill Number <strong>779387</strong> <br> <strong>Account Number</strong> is the student <strong>card number</strong></p>
+>>>>>>> master
                             </div>
                         </div>
                     </div>
@@ -128,7 +132,7 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-                                <p>Send a message with the student number to 00000.<br> <h6><em>Only phone numbers registered and linked to a card can check the balance</em></h6><br><h6><em></em></h6></p>
+                                <p>Send a <strong>message</strong> with the student number to <strong>00000</strong><br> <h6><em>Only phone numbers registered and linked to a card can check the balance</em></h6><br><h6><em></em></h6></p>
                             </div>
                         </div>
                     </div>
