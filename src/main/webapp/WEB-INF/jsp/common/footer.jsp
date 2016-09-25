@@ -16,11 +16,6 @@
             <div class="col-footer col-md-3 col-xs-6">
                 <h3>Partners</h3>
                 <ul class="no-list-style footer-navigate-section">
-<<<<<<< HEAD
-                    <li><a href="https://www.pockecard.com" target="_blank">Necxuss Technologies</a></li>
-                    <%--<li><a href="#">Education Ministry</a></li>
-                    <li><a href="#">KNUT</a></li>--%>
-=======
                     <li><a href="https://www.necxuss.co.ke" target="_blank">Necxuss Technologies</a></li>
                     <!--<li><a href="#">Education Ministry</a></li>
                     <li><a href="#">KNUT</a></li>-->
@@ -32,37 +27,25 @@
                 <ul class="no-list-style footer-navigate-section">
                     <li><a href="/privacy" target="_blank">Privacy</a></li>
                     <li><a href="/faq" target="_blank">Faq</a></li>
-<<<<<<< HEAD
                     <!--<li><a href="#" target="_blank">News</a></li>-->
-=======
-                    <li><a href="#" target="_blank">News</a></li>
->>>>>>> master
+
                 </ul>
             </div>
 
             <div class="col-footer col-md-4 col-xs-6">
                 <h3>Contacts</h3>
                 <p class="contact-us-details">
-<<<<<<< HEAD
-                    <b>Address:</b> 21665-00100, Nairobi<br/>
-=======
                     <b>Address:</b> 21665 00100, Nairobi<br/>
->>>>>>> master
                     <b>Phone:</b> (+254)725 980 165 / 704 033 581<br/>
                     <b>Email:</b> <a href="mailto:info@pockecard.com">info@pockecard.com</a>
                 </p>
             </div>
             <div class="col-footer col-md-2 col-xs-6">
                 <h3>Social</h3>
-<<<<<<< HEAD
-                <ul style="list-style: none">
-                    <li><a href="https://facebook.com/PockeCardKE"><img src="/resources/images/facebook.png"></a></li>
-                    <li><a href="https://twitter.com/PockeCardKE"><img src="/resources/images/twitter.png"></a></li>
-=======
                 <ul style="list-style: none;">
                     <li><a href="https://facebook.com/PockeCardKE" target="_blank"><img src="/resources/images/facebook.png"></a></li>
                     <li><a href="https://twitter.com/PockeCardKE" target="_blank"><img src="/resources/images/twitter.png"></a></li>
->>>>>>> master
+
                     <%--<li><a href="#"><img src="/resources/images/instagram.png"></a></li>
                     <li><a href="#"><img src="/resources/images/YouTube.png"></a></li>
                     <li><a href="https://facebook.com/PockeCard" class="facebook"></a></li>

@@ -151,7 +151,7 @@
                 <div class="section-title">
                     <h6>Are you an School administrator and need to control expenses in your School Canteen?</h6>
                     <h1 class="heading bolder">Get in touch</h1>
-                    <h6>Join the 'Pocke' Fraternity</h6>
+                    <h6>Join the 'PockeCard' Fraternity</h6>
                     <hr>
                 </div>
             </div>
@@ -173,11 +173,11 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <h3><i data-wow-delay="0.6s"></i>Drop us a message:</h3>
-<<<<<<< HEAD
+
                 <form action="mailto:info@pockecard.com" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
-=======
+
                 <form action="https://www.pockecard.com" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
->>>>>>> master
+
                     <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>
