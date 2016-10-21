@@ -14,7 +14,7 @@ import java.util.Set;
 public class Card extends AbstractModel{
     private String cardNo;
     private BigDecimal balance;
-
+    private String pin;
     @OneToMany(mappedBy = "card")
     private Set<Buying> buyingSet;
 
@@ -62,5 +62,13 @@ public class Card extends AbstractModel{
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 }

@@ -11,4 +11,5 @@ public interface CardService {
     public Card create(Card card);
     public Card getOne(Long id);
     public List<Card> findAll();
+    public Boolean validateCard(String cardNo , String pin);
 }

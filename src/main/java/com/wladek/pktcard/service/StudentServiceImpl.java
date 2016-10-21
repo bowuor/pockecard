@@ -2,12 +2,10 @@ package com.wladek.pktcard.service;
 
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.Student;
-import com.wladek.pktcard.domain.User;
 import com.wladek.pktcard.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -3,9 +3,7 @@ package com.wladek.pktcard.service;
 import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.User;
-import com.wladek.pktcard.pojo.ItemDto;
-import com.wladek.pktcard.pojo.LoginDetails;
-import com.wladek.pktcard.pojo.SchoolDetails;
+import com.wladek.pktcard.pojo.*;
 import com.wladek.pktcard.repository.SchoolRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -29,6 +27,8 @@ public class SchoolServiceImpl implements SchoolService {
     PasswordEncoder passwordEncoder;
     @Autowired
     ItemService itemService;
+    @Autowired
+    CardService cardService;
 
     @Override
     public School create(School school) {
@@ -117,5 +117,25 @@ public class SchoolServiceImpl implements SchoolService {
         }
 
         return itemDtos;
+    }
+
+    @Override
+    public CheckOutResponse checkOut(CheckOutDetails checkOutDetails) {
+
+        if (checkOutDetails != null){
+
+            boolean validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
+
+            if (validCard){
+                //Proceed with checkout
+
+            }
+        }
+
+        CheckOutResponse checkOutResponse = new CheckOutResponse();
+        checkOutResponse.setCheckedOut(true);
+        checkOutResponse.setMessage("Test server response");
+
+        return checkOutResponse;
     }
 }
