@@ -41,7 +41,7 @@ public class MobileApi {
         return itemDtos.toArray(itemArray);
     }
 
-    @RequestMapping(value = "/student_checkout" , produces = "application/json" , method = RequestMethod.GET)
+    @RequestMapping(value = "/student_checkout" , produces = "application/json" , consumes = "application/json")
     @ResponseBody
     public CheckOutResponse checkout(@RequestBody CheckOutDetails checkOutDetails){
         CheckOutResponse response = schoolService.checkOut(checkOutDetails);

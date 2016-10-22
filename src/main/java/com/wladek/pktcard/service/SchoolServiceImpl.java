@@ -124,7 +124,11 @@ public class SchoolServiceImpl implements SchoolService {
 
         if (checkOutDetails != null){
 
-            boolean validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
+            boolean validCard = false;
+
+//            if(checkOutDetails.getCardNumber() != null){
+//                validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
+//            }
 
             if (validCard){
                 //Proceed with checkout
