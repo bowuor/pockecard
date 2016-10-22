@@ -1,10 +1,14 @@
 package com.wladek.pktcard.service;
 
+import com.amazonaws.util.json.JSONException;
+import com.amazonaws.util.json.JSONObject;
 import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.User;
 import com.wladek.pktcard.pojo.*;
 import com.wladek.pktcard.repository.SchoolRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,6 +23,7 @@ import java.util.List;
  */
 @Service
 public class SchoolServiceImpl implements SchoolService {
+    Logger logger = LoggerFactory.getLogger(SchoolServiceImpl.class);
     @Autowired
     SchoolRepo schoolRepo;
     @Autowired
@@ -121,6 +126,11 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public CheckOutResponse checkOut(CheckOutDetails checkOutDetails) {
+
+
+        JSONObject data = new JSONObject(checkOutDetails);
+
+        logger.info(" +++ CHECKOUT DATA +++++ "+data);
 
         if (checkOutDetails != null){
 
