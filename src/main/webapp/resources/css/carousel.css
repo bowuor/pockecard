@@ -37,13 +37,13 @@
 
 /* Carousel base class */
 .carousel {
-  height: 650px;
+  height: 600px;
   width: 100%;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
-  background-color:rgba(0, 0, 0, 0.7);;
+  background-color:rgba(0, 0, 0, 0);;
 
 }
 
@@ -150,8 +150,8 @@ media quires for mobile
 ========================================================================== */
 @media (max-width: 440px) {
   #home {
-    padding-top: 320px;
-    padding-bottom: 320px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   #home h1 {
     font-size: 22px;

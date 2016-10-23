@@ -11,7 +11,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/resources/images/ic_launcher2.png">
 
-    <title>PENSION</title>
+    <title>REGISTER</title>
 
     <!-- Bootstrap core CSS -->
     <link type="text/css" href="/resources/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,47 +28,46 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="body-Login-back">
 
-<jsp:include page="/WEB-INF/jsp/common/topmenu.jsp"/>
-
-<div class="container-fluid"/>
+<div class="login-container">
     <div class="row">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header">Sign Up</h1>
-
+        <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
+            <a href="/"><img src="/resources/images/logosmall.png" alt=""/></a>
+        </div>
+        <div class="col-md-offset-4 col-md-4 main text-center logo-margin">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Admin Signup</h3>
+                </div>
             <form:form acceptCharset="UTF-8" action="/users/signup" method="post" modelAttribute="user" cssClass="form-horizontal" role="form">
                 <div class="form-group">
-                    <label for="loginId" class="col-sm-2 control-label">Username</label>
-                    <div class="col-sm-4">
-                        <form:input path="loginId" id="loginId" type="text" cssClass="form-control" placeholder="username" />
+                    <div class="col-sm-12">
+                        <form:input path="loginId" id="loginId" type="text" cssClass="form-control" placeholder="Username" />
                         <form:errors path="loginId" cssClass="form-inline" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-sm-2 control-label">Email</label>
-                    <div class="col-sm-4">
+                    <div class="col-sm-12">
                         <form:input path="email" id="email" type="email" cssClass="form-control" placeholder="email" />
                         <form:errors path="email" cssClass="form-inline" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="name" class="col-sm-2 control-label">Name</label>
-                    <div class="col-sm-4">
-                        <form:input path="name" id="name" type="text" cssClass="form-control" />
+                    <div class="col-sm-12">
+                        <form:input path="name" id="name" type="text" cssClass="form-control" placeholder="Name"/>
                         <form:errors path="name" cssClass="form-inline" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="password" class="col-sm-2 control-label">Password</label>
-                    <div class="col-sm-4">
-                        <form:input path="password" id="password" type="password" cssClass="form-control" />
+                    <div class="col-sm-12">
+                        <form:input path="password" id="password" type="password" cssClass="form-control" placeholder="Password" />
                         <form:errors path="password" cssClass="form-inline" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input class="btn btn-success" type="submit" value="Submit">
+                    <div class="col-sm-12">
+                        <input class="login-btn btn-success" type="submit" value="Submit">
                     </div>
                 </div>
             </form:form>

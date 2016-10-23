@@ -35,7 +35,7 @@
         <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
             <a href="/"><img src="/resources/images/logosmall.png" alt=""/></a>
         </div>
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 col-md-offset-4 main">
             <c:if test="${isFailed}">
                 <div class="col-md-12">
                     <div class="alert alert-danger">
