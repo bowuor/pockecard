@@ -60,13 +60,7 @@
                         <li><a href="/#about" class="smoothScroll">About</a></li>
                         <li><a href="/#services" class="smoothScroll">Services</a></li>
                         <li><a href="/#contact" class="smoothScroll">Contact Us</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">${school.name}!<span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <%--<li><a href="/users/home">Management panel</a></li>--%>
-                                <li><a href="/users/logout">Logout</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="/users/home" >WebApp</a></li>
                     </sec:authorize>
                 </ul>
             </div>
