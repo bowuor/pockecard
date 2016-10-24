@@ -27,7 +27,7 @@
         </ol>
         <div class="carousel-inner">
             <div class="item active">
-                <img src="/resources/images/4.jpg" alt="First slide">
+                <img src="/resources/images/4.png" alt="First slide">
                 <div class="container">
                     <div class="carousel-caption ">
                         <p>Payments the 'Pocke' way</p>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/resources/images/breaktime.jpg" alt="Second slide">
+                <img src="/resources/images/2.png" alt="Second slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <p>Promote order and efficiency in our schools</p>
@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="/resources/images/3.jpg" alt="Third slide">
+                <img src="/resources/images/3.png" alt="Third slide">
                 <div class="container">
                     <div class="carousel-caption">
                         <p>Join a fraternity united for success</p>
@@ -180,8 +180,6 @@
                 </div>
 
                 <form action="www.pockecard.php" method="post" data-form-title="POCKECARD CONTACT FORM">
-                    <input type="hidden" value="oUPSYwpNghhXQG+5nAAFOLUMEsCY0opKfJZ6Y76/AgHkFcW9HqhDQ4PkTVvgDw4MBGTmP7d2BkQpasnVfHpkeGvhL56sYbgI2CJO/i3nb5dfmuyn1aCEkfyGwwmbGhqj" data-form-email="true">
-
                     <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>

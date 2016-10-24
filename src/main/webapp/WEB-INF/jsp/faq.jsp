@@ -115,11 +115,9 @@
                         <div class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <div class="answer">&nbsp;</div>
-<<<<<<< HEAD
-                                <p>Go to Mpesa <br> Lipa na Mpesa <br> Paybill Number 779387 <br> Account Number is the student number* <h6></p>
-=======
+
                                 <p>Go to <strong>Mpesa</strong> <br> Lipa na Mpesa <br> Paybill Number <strong>779387</strong> <br> <strong>Account Number</strong> is the student <strong>card number</strong></p>
->>>>>>> master
+
                             </div>
                         </div>
                     </div>
