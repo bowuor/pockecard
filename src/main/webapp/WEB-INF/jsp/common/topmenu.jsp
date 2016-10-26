@@ -10,7 +10,8 @@
                     <li  style="list-style: none"><a href="/users/loginform">Login</a></li>
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
-                    <li  style="list-style: none"><a href="/users/logout">Logout</a></li>
+
+                    <li  style="list-style: none"><a href="/users/logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                 </sec:authorize>
             </button>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

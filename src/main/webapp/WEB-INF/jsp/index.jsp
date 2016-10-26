@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/head.jsp">
-        <jsp:param name="title" value="POCKECARD"/>
+        <jsp:param name="title" value="PockeCard | Home"/>
     </jsp:include>
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>
@@ -210,6 +210,7 @@
 <script src="/resources/components/jquery/dist/jquery.min.js"></script>
 <script src="/resources/js/smoothscroll.js"></script>
 <script src="/resources/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/d9e5662162.js"></script>
 <script src="/resources/components/holderjs/holder.js"></script>
 <script src="/resources/js/wow.min.js"></script>
 <script src="/resources/js/jquery.bxSlider.js"></script>

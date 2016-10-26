@@ -20,17 +20,5 @@
                     </span>
         </div>
     </form>--%>
-    <h4>Links</h4>
-    <ul class="recent-posts">
-        <li><a href="pronto.html">Pronto</a></li>
-        <li><a href="emergency-loan.html">Emergency Loan</a></li>
-        <li><a href="development-loan.html">Development Loan</a></li>
-        <li><a href="movable-asset-financing.html">Movable Asset Financing</a></li>
-        <li><a href="fixed-asset-financing.html">Fixed Asset Financing</a></li>
-    </ul>
-    <h4>Other Products</h4>
-    <ul class="blog-categories">
-        <li><a href="#">Shares</a></li>
-        <li><a href="#">Deposits</a></li>
-    </ul>
+
 </div>
