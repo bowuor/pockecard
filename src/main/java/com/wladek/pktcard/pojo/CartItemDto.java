@@ -11,8 +11,8 @@ public class CartItemDto {
     private String name;
     private String code;
     private int cartQuantity;
-    private Double unitPrice;
-    private Double totalCartValue;
+    private BigDecimal unitPrice;
+    private BigDecimal totalCartValue;
 
     public Long getId() {
         return id;
@@ -46,19 +46,19 @@ public class CartItemDto {
         this.cartQuantity = cartQuantity;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public Double getTotalCartValue() {
+    public BigDecimal getTotalCartValue() {
         return totalCartValue;
     }
 
-    public void setTotalCartValue(Double totalCartValue) {
+    public void setTotalCartValue(BigDecimal totalCartValue) {
         this.totalCartValue = totalCartValue;
     }
 }

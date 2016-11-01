@@ -2,6 +2,7 @@ package com.wladek.pktcard.service;
 
 import com.amazonaws.util.json.JSONException;
 import com.amazonaws.util.json.JSONObject;
+import com.wladek.pktcard.domain.Card;
 import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.User;
@@ -15,6 +16,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +25,7 @@ import java.util.List;
  * Created by wladek on 5/17/16.
  */
 @Service
+@Transactional
 public class SchoolServiceImpl implements SchoolService {
     Logger logger = LoggerFactory.getLogger(SchoolServiceImpl.class);
     @Autowired
@@ -127,29 +131,78 @@ public class SchoolServiceImpl implements SchoolService {
     @Override
     public CheckOutResponse checkOut(CheckOutDetails checkOutDetails) {
 
-
-        JSONObject data = new JSONObject(checkOutDetails);
-
-        logger.info(" +++ CHECKOUT DATA +++++ "+data);
+        CheckOutResponse checkOutResponse = new CheckOutResponse();
 
         if (checkOutDetails != null){
 
             boolean validCard = false;
 
-//            if(checkOutDetails.getCardNumber() != null){
-//                validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
-//            }
+            if(checkOutDetails.getCardNumber() != null){
+
+                validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
+            }
 
             if (validCard){
-                //Proceed with checkout
 
+                checkOutResponse = doCheckout(checkOutDetails);
+
+                return checkOutResponse;
             }
+
+            checkOutResponse.setCheckedOut(false);
+            checkOutResponse.setMessage(" WRONG PIN !!! ");
+
+            return checkOutResponse;
         }
 
-        CheckOutResponse checkOutResponse = new CheckOutResponse();
-        checkOutResponse.setCheckedOut(true);
-        checkOutResponse.setMessage("Test server response");
+        checkOutResponse.setCheckedOut(false);
+        checkOutResponse.setMessage(" Oops.. Server error. Please try again ");
 
         return checkOutResponse;
+    }
+
+    private CheckOutResponse doCheckout(CheckOutDetails checkOutDetails) {
+
+        CheckOutResponse checkOutResponse = new CheckOutResponse();
+
+        BigDecimal cardBalance = checkStudentBalance(checkOutDetails.getCardNumber());
+        BigDecimal totalCartValue = getTotalPurchase(checkOutDetails.getCartItems());
+
+        if (totalCartValue.compareTo(cardBalance) == -1){
+
+            String checkoutString = "Sorry, you don't have enough money " +
+                    "in your account to complete this transaction." +
+                    "BALANCE : "+ cardBalance +";" +
+                    "TRANSACTING AMOUNT : " + totalCartValue;
+
+            checkOutResponse.setCheckedOut(false);
+            checkOutResponse.setMessage(checkoutString);
+
+            return checkOutResponse;
+
+        }
+
+        if (totalCartValue.compareTo(cardBalance) == 0 || totalCartValue.compareTo(cardBalance) == 1){
+            //Commit transaction
+
+        }
+
+        return null;
+    }
+
+    public BigDecimal checkStudentBalance(String cardNo){
+        Card studentCard = cardService.findByCardNumber(cardNo);
+        return studentCard.getBalance();
+    }
+
+    public BigDecimal getTotalPurchase(List<CartItemDto> cartItems){
+
+        BigDecimal totalVal = BigDecimal.ZERO;
+
+        for (int i = 0 ; i < cartItems.size() ; i++){
+            totalVal = totalVal.add(cartItems.get(i).getTotalCartValue());
+        }
+
+        return totalVal;
     }
 }

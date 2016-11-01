@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 
 /**
  * Created by wladek on 1/1/10.
+ *
+ * Holds all transactions involving cards. i.e all top ups and buying
  */
 @Entity
 public class CardTransaction extends AbstractModel{
