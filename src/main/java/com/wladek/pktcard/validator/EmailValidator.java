@@ -10,7 +10,6 @@ import java.util.regex.Matcher;
 import org.springframework.stereotype.Component;
 
 @Component("emailValidator")
-
 public class EmailValidator {
 
     private Pattern pattern;

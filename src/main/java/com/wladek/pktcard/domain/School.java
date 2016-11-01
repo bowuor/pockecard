@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Pattern;
 import java.util.Set;
 
 /**
@@ -13,9 +14,14 @@ import java.util.Set;
  */
 @Entity
 public class School extends AbstractModel{
+
+    public static final String STRING_PATTERN = "^[a-zA-Z0-9-]+([_.][a-zA-Z0-9-]+)*$";
+
     @NotEmpty(message = "Provide school name")
+    @Pattern(regexp = STRING_PATTERN, message = "Illegal character included in name")
     private String name;
     @NotEmpty(message = "Provide school code")
+    @Pattern(regexp = STRING_PATTERN, message = "Illegal character included in code")
     private String code;
 
     @OneToMany(mappedBy = "school" , fetch = FetchType.LAZY)
