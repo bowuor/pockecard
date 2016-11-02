@@ -68,4 +68,9 @@ public class ItemServiceImpl implements ItemService {
     public void delete(Long id) {
         itemRepo.delete(id);
     }
+
+    @Override
+    public Item findByCode(String itemCode) {
+        return itemRepo.findByItemCode(itemCode);
+    }
 }

@@ -1,7 +1,9 @@
 package com.wladek.pktcard.service;
 
+import com.wladek.pktcard.domain.Buying;
 import com.wladek.pktcard.domain.Card;
 import com.wladek.pktcard.domain.CardTransaction;
+import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.enumeration.TransactionType;
 import com.wladek.pktcard.pojo.CartItemDto;
 import com.wladek.pktcard.repository.CardRepo;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,6 +19,7 @@ import java.util.List;
  * Created by wladek on 5/17/16.
  */
 @Service
+@Transactional
 public class CardServiceImpl implements CardService{
     @Autowired
     CardRepo cardRepo;
@@ -23,6 +27,10 @@ public class CardServiceImpl implements CardService{
     PasswordEncoder passwordEncoder;
     @Autowired
     CardTrxService cardTrxService;
+    @Autowired
+    ItemService itemService;
+    @Autowired
+    BuyingService buyingService;
 
     @Override
     public Card create(Card card) {
@@ -69,6 +77,49 @@ public class CardServiceImpl implements CardService{
             commit = 1;
         }
 
+        /**
+         * Record each item's transaction
+         */
+        if (commit == 1){
+            commit = recordItemTrx(cartItems , studentCard);
+        }
+
         return commit;
     }
+
+    private int recordItemTrx(List<CartItemDto> cartItems , Card studentCard) {
+
+        int commit = 0;
+
+        for (int i = 0 ; i < cartItems.size() ; i++){
+            CartItemDto itemDto = cartItems.get(i);
+            Buying buying = new Buying();
+
+            try{
+
+                Item currentItem = itemService.findByCode(itemDto.getCode());
+
+                buying.setCard(studentCard);
+                buying.setUnitPrice(itemDto.getUnitPrice());
+                buying.setQuantity(itemDto.getCartQuantity());
+                buying.setCardNo(studentCard.getCardNo());
+                buying.setTotalAmount(itemDto.getTotalCartValue());
+                buying.setItem(currentItem);
+
+                buying = buyingService.makeBuy(buying);
+
+                if (buying != null){
+                    commit = 1;
+                }
+
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return commit;
+    }
+
 }

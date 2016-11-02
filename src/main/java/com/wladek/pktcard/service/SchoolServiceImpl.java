@@ -1,7 +1,5 @@
 package com.wladek.pktcard.service;
 
-import com.amazonaws.util.json.JSONException;
-import com.amazonaws.util.json.JSONObject;
 import com.wladek.pktcard.domain.Card;
 import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;

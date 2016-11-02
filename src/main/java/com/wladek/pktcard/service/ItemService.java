@@ -16,4 +16,5 @@ public interface ItemService {
     public Page<Item> findBySchool(School school , int page , int size);
     public List<Item> findBySchool(School school);
     public void delete(Long id);
+    public Item findByCode(String itemCode);
 }

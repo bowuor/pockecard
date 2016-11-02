@@ -31,11 +31,11 @@ public class Buying extends AbstractModel{
         this.cardNo = cardNo;
     }
 
-    public Integer getAmount() {
+    public Integer getQuantity() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setQuantity(Integer amount) {
         this.amount = amount;
     }
 
