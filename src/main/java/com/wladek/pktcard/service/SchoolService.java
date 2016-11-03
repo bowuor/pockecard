@@ -18,5 +18,5 @@ public interface SchoolService {
     public SchoolDetails getBySchoolCode(SchoolDetails schoolDetails);
     public SchoolDetails authSchoolAdmin(LoginDetails loginDetails);
     public List<ItemDto> getSchoolItems(String schoolCode);
-    CheckOutResponse checkOut(CheckOutDetails checkOutDetails);
+    public CheckOutResponse checkOut(CheckOutDetails checkOutDetails);
 }

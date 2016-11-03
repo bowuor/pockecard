@@ -54,8 +54,8 @@ public class SchoolServiceImpl implements SchoolService {
 
     @Override
     public Page<School> getAll(int page, int size) {
-        page = page -1;
-        PageRequest pageRequest = new PageRequest(page , size);
+        page = page - 1;
+        PageRequest pageRequest = new PageRequest(page, size);
         return schoolRepo.findAll(pageRequest);
     }
 
@@ -64,13 +64,13 @@ public class SchoolServiceImpl implements SchoolService {
 
         School school = schoolRepo.findByCode(schoolDetails.getSchoolCode());
 
-         if (school != null){
-             schoolDetails = new SchoolDetails();
-             schoolDetails.setSchoolName(school.getName());
-             schoolDetails.setSchoolCode(school.getCode());
-         }else {
-             schoolDetails = null;
-         }
+        if (school != null) {
+            schoolDetails = new SchoolDetails();
+            schoolDetails.setSchoolName(school.getName());
+            schoolDetails.setSchoolCode(school.getCode());
+        } else {
+            schoolDetails = null;
+        }
 
         return schoolDetails;
     }
@@ -82,30 +82,30 @@ public class SchoolServiceImpl implements SchoolService {
 
         SchoolDetails schoolDetails = new SchoolDetails();
 
-        if (user != null){
+        if (user != null) {
 
-            boolean matched = passwordEncoder.matches(loginDetails.getPassword() , user.getPassword());
+            boolean matched = passwordEncoder.matches(loginDetails.getPassword(), user.getPassword());
 
-            if (matched){
+            if (matched) {
 
                 schoolDetails.setLoggedIn(true);
                 schoolDetails.setLogInResponse("SUCCESS");
 
-                if (user.getSchool() != null){
+                if (user.getSchool() != null) {
                     School school = user.getSchool();
                     schoolDetails.setSchoolCode(school.getCode());
                     schoolDetails.setSchoolName(school.getName());
-                }else{
+                } else {
                     schoolDetails.setLoggedIn(false);
                     schoolDetails.setLogInResponse("FAILED");
                 }
 
-            }else{
+            } else {
                 schoolDetails.setLoggedIn(false);
                 schoolDetails.setLogInResponse("FAILED");
             }
 
-        }else {
+        } else {
             schoolDetails.setLoggedIn(false);
             schoolDetails.setLogInResponse("FAILED");
         }
@@ -119,7 +119,7 @@ public class SchoolServiceImpl implements SchoolService {
 
         List<ItemDto> itemDtos = new ArrayList<>();
 
-        for (Item i : itemService.findBySchool(school)){
+        for (Item i : itemService.findBySchool(school)) {
             itemDtos.add(i.toDto());
         }
 
@@ -131,16 +131,16 @@ public class SchoolServiceImpl implements SchoolService {
 
         CheckOutResponse checkOutResponse = new CheckOutResponse();
 
-        if (checkOutDetails != null){
+        if (checkOutDetails != null) {
 
             boolean validCard = false;
 
-            if(checkOutDetails.getCardNumber() != null){
+            if (checkOutDetails.getCardNumber() != null) {
 
-                validCard = cardService.validateCard(checkOutDetails.getCardNumber() , checkOutDetails.getPin());
+                validCard = cardService.validateCard(checkOutDetails.getCardNumber(), checkOutDetails.getPin());
             }
 
-            if (validCard){
+            if (validCard) {
 
                 checkOutResponse = doCheckout(checkOutDetails);
 
@@ -166,11 +166,11 @@ public class SchoolServiceImpl implements SchoolService {
         BigDecimal cardBalance = checkStudentBalance(checkOutDetails.getCardNumber());
         BigDecimal totalCartValue = getTotalPurchase(checkOutDetails.getCartItems());
 
-        if (totalCartValue.compareTo(cardBalance) == -1){
+        if (totalCartValue.compareTo(cardBalance) == -1) {
 
             String checkoutString = "Sorry, you don't have enough money " +
                     "in your account to complete this transaction." +
-                    "BALANCE : "+ cardBalance +";" +
+                    "BALANCE : " + cardBalance + ";" +
                     "TRANSACTING AMOUNT : " + totalCartValue;
 
             checkOutResponse.setCheckedOut(false);
@@ -180,24 +180,37 @@ public class SchoolServiceImpl implements SchoolService {
 
         }
 
-        if (totalCartValue.compareTo(cardBalance) == 0 || totalCartValue.compareTo(cardBalance) == 1){
+        int result = 0;
+
+        if (totalCartValue.compareTo(cardBalance) == 0 || totalCartValue.compareTo(cardBalance) == 1) {
             //Commit transaction
+            result = cardService.recordBuyingTransaction(checkOutDetails.getCardNumber(),
+                    checkOutDetails.getCartItems(), totalCartValue);
 
         }
 
-        return null;
+        if (result == 1){
+            checkOutResponse.setCheckedOut(true);
+            checkOutResponse.setMessage("Thank you for using pockecard. cheers.");
+        }else {
+            checkOutResponse.setCheckedOut(false);
+            checkOutResponse.setMessage("There was an error while processing your transaction. " +
+                    "Please try again.");
+        }
+
+        return checkOutResponse;
     }
 
-    public BigDecimal checkStudentBalance(String cardNo){
+    public BigDecimal checkStudentBalance(String cardNo) {
         Card studentCard = cardService.findByCardNumber(cardNo);
         return studentCard.getBalance();
     }
 
-    public BigDecimal getTotalPurchase(List<CartItemDto> cartItems){
+    public BigDecimal getTotalPurchase(List<CartItemDto> cartItems) {
 
         BigDecimal totalVal = BigDecimal.ZERO;
 
-        for (int i = 0 ; i < cartItems.size() ; i++){
+        for (int i = 0; i < cartItems.size(); i++) {
             totalVal = totalVal.add(cartItems.get(i).getTotalCartValue());
         }
 

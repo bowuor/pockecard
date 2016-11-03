@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Service
 @Transactional
-public class CardServiceImpl implements CardService{
+public class CardServiceImpl implements CardService {
     @Autowired
     CardRepo cardRepo;
     @Autowired
@@ -50,7 +50,7 @@ public class CardServiceImpl implements CardService{
     @Override
     public Boolean validateCard(String cardNo, String pin) {
         Card studentCard = findByCardNumber(cardNo);
-        return passwordEncoder.matches(pin , studentCard.getPin());
+        return passwordEncoder.matches(pin, studentCard.getPin());
     }
 
     @Override
@@ -59,7 +59,7 @@ public class CardServiceImpl implements CardService{
     }
 
     @Override
-    public int recordBuyingTransaction(String cardNo, List<CartItemDto> cartItems , BigDecimal totalAmount) {
+    public int recordBuyingTransaction(String cardNo, List<CartItemDto> cartItems, BigDecimal totalAmount) {
 
         Card studentCard = findByCardNumber(cardNo);
 
@@ -73,29 +73,31 @@ public class CardServiceImpl implements CardService{
 
         CardTransaction trx = cardTrxService.makeTrx(cardTransaction);
 
-        if (trx != null){
+        if (trx != null) {
             commit = 1;
         }
 
         /**
          * Record each item's transaction
          */
-        if (commit == 1){
-            commit = recordItemTrx(cartItems , studentCard);
+        if (commit == 1) {
+            commit = recordItemTrx(cartItems, studentCard);
         }
 
         return commit;
     }
 
-    private int recordItemTrx(List<CartItemDto> cartItems , Card studentCard) {
+    private int recordItemTrx(List<CartItemDto> cartItems, Card studentCard) {
 
         int commit = 0;
 
-        for (int i = 0 ; i < cartItems.size() ; i++){
+        for (int i = 0; i < cartItems.size(); i++) {
+
             CartItemDto itemDto = cartItems.get(i);
+
             Buying buying = new Buying();
 
-            try{
+            try {
 
                 Item currentItem = itemService.findByCode(itemDto.getCode());
 
@@ -108,18 +110,49 @@ public class CardServiceImpl implements CardService{
 
                 buying = buyingService.makeBuy(buying);
 
-                if (buying != null){
+                if (buying != null) {
                     commit = 1;
                 }
 
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 e.printStackTrace();
-            } catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
 
+        if (commit == 1) {
+            debitCard(studentCard, cartItems);
+        } else {
+            return 0;
+        }
+
+
         return commit;
+    }
+
+    private void debitCard(Card studentCard, List<CartItemDto> cartItems) {
+
+        studentCard = getOne(studentCard.getId());
+
+        BigDecimal currentBalance = studentCard.getBalance();
+        BigDecimal totalValue = BigDecimal.ZERO;
+
+        try {
+
+            for (int i = 0; i < cartItems.size(); i++) {
+                CartItemDto item = cartItems.get(i);
+                totalValue = totalValue.add(item.getTotalCartValue());
+            }
+
+            studentCard.setBalance(currentBalance.subtract(totalValue));
+
+            cardRepo.save(studentCard);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
