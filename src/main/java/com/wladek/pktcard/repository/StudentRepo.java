@@ -15,4 +15,5 @@ import org.springframework.stereotype.Repository;
 public interface StudentRepo extends JpaRepository<Student, Long>{
     public Page<Student> findBySchool(Pageable pageable , School school);
     public Student findByCardAndRegNumber(Card card , String regNumber);
+    public Student findByRegNumber(String regNumber);
 }

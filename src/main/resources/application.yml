@@ -22,3 +22,5 @@ logging:
   level:
     org.springframework.web: ERROR
     org.hibernate: ERROR
+    com.wladek.pktcard: ERROR
+    org.springframework: ERROR

@@ -89,7 +89,6 @@ public class APIExample {
                     }
 
                     public void onFailure(Call<AirtimeDisbursement> call, Throwable throwable) {
-
                         echo("Send Airtime", throwable.getMessage());
                     }
                 });
@@ -191,7 +190,7 @@ public class APIExample {
         //apiExample.getFloatBalance();
         //apiExample.sendMoney();
         //apiExample.sendAirtime();
-        //apiExample.sendSMS();
+        //apiExample.sendSMS();c
         //apiExample.confirmTransaction();
         //apiExample.reconcileTransaction();
         //apiExample.reverseTransaction();
