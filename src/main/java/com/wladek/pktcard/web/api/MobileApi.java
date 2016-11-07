@@ -47,4 +47,11 @@ public class MobileApi {
         CheckOutResponse response = schoolService.checkOut(checkOutDetails);
         return response;
     }
+
+    @RequestMapping(value = "/register_card" , produces = "application/json" , consumes = "application/json")
+    @ResponseBody
+    public CardDetailDto registerCard(@RequestBody CardRegRequestDto cardDto){
+        CardDetailDto cardDetailDto = studentService.registerCard(cardDto);
+        return cardDetailDto;
+    }
 }
