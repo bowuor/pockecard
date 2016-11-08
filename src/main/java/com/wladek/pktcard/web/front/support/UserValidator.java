@@ -21,12 +21,12 @@ public class UserValidator {
     public boolean validateNewUser(User user, BindingResult result) {
         User existingUser = repository.findByEmail(user.getEmail());
         if(existingUser != null) {
-            result.rejectValue("email", "user.email.duplicate", "Email already registered, try another one.");
+            result.rejectValue("email", "user.email.duplicate", "Email already registered.");
         }
 
         existingUser = repository.findByLoginId(user.getLoginId());
         if(existingUser != null) {
-            result.rejectValue("loginId", "user.loginId.duplicate", "Username already registered, try another one.");
+            result.rejectValue("loginId", "user.loginId.duplicate", "Username already registered.");
         }
 
 //        List<User> users = repository.findByUserRole(UserRole.ADMIN);

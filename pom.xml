@@ -121,6 +121,12 @@
             </exclusions>
         </dependency>
 
+        <dependency>
+            <groupId>com.lipisha.sdk</groupId>
+            <artifactId>lipisha-sdk</artifactId>
+            <version>2.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

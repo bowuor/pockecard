@@ -150,6 +150,14 @@ public class UsersRootController {
         return "/users/item";
     }
 
+    @RequestMapping(value = "/item/delete/{itemId}", method = RequestMethod.POST)
+    public String deleteItem(@PathVariable("itemId") Long itemId, RedirectAttributes redirectAttributes) {
+        itemService.delete(itemId);
+        redirectAttributes.addFlashAttribute("message", true);
+        redirectAttributes.addFlashAttribute("content", "item deleted");
+        return "redirect:/users/items";
+    }
+
     @RequestMapping(value = "/item/updateItem", method = RequestMethod.POST)
     public String updateItem(@ModelAttribute @Valid Item item, BindingResult result, RedirectAttributes redirectAttributes,
                              Model model) {

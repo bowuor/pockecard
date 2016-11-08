@@ -77,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().hasRole(UserRole.ADMIN.name());
 
 
-        http.csrf().disable();
+//        http.csrf().disable();
     }
 
     @Override

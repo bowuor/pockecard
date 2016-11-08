@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 
 /**
  * Created by wladek on 1/1/10.
+ *
+ * Hold all records of items bought by card in a single trx
  */
 @Entity
 public class Buying extends AbstractModel{
@@ -29,11 +31,11 @@ public class Buying extends AbstractModel{
         this.cardNo = cardNo;
     }
 
-    public Integer getAmount() {
+    public Integer getQuantity() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setQuantity(Integer amount) {
         this.amount = amount;
     }
 

@@ -45,6 +45,7 @@ public class User extends AbstractModel{
     private String loginId;
 
     @Column(nullable = false)
+    @Pattern(regexp = LOGIN_ID_PATTERN, message = "Illegal character included")
     private String password;
 
     @Column(unique = true)
