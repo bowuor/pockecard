@@ -63,4 +63,14 @@ public class ItemServiceImpl implements ItemService {
     public List<Item> findBySchool(School school) {
         return itemRepo.findBySchool(school);
     }
+
+    @Override
+    public void delete(Long id) {
+        itemRepo.delete(id);
+    }
+
+    @Override
+    public Item findByCode(String itemCode) {
+        return itemRepo.findByItemCode(itemCode);
+    }
 }

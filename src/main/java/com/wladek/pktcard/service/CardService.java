@@ -1,7 +1,9 @@
 package com.wladek.pktcard.service;
 
 import com.wladek.pktcard.domain.Card;
+import com.wladek.pktcard.pojo.CartItemDto;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -11,4 +13,7 @@ public interface CardService {
     public Card create(Card card);
     public Card getOne(Long id);
     public List<Card> findAll();
+    public Boolean validateCard(String cardNo , String pin);
+    public Card findByCardNumber(String cardNo);
+    public int recordBuyingTransaction(String cardNo , List<CartItemDto> cartItems , BigDecimal totalAmount);
 }

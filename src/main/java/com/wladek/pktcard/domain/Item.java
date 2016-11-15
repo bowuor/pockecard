@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import java.util.Random;
 import java.util.Set;
@@ -14,12 +15,17 @@ import java.util.Set;
  */
 @Entity
 public class Item extends AbstractModel{
+    public static final String STRING_PATTERN = "^[a-zA-Z0-9-]+([_.][a-zA-Z0-9-]+)*$";
+
     @NotEmpty(message = "Provide item name")
+    @Pattern(regexp = STRING_PATTERN, message = "Illegal character included name")
     private String name;
     @NotNull(message = "Provide unit price in KSh")
     private BigDecimal unitPrice;
     @NotEmpty(message = "Briefly describe item")
+    @Pattern(regexp = STRING_PATTERN, message = "Illegal character included in description")
     private String description;
+    @Pattern(regexp = STRING_PATTERN, message = "Illegal character included in code")
     private String itemCode;
 
     @OneToMany(mappedBy = "item")

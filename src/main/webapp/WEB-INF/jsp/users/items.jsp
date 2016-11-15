@@ -61,17 +61,19 @@
                                     </thead>
                                     <tbody>
                                     <c:forEach items="${itemPage.content}" var="item">
-                                    <tr>
-                                        <td>${item.name}</td>
-                                        <td>${item.unitPrice}</td>
-                                        <td>${item.description}</td>
-                                        <td>
-                                            <a href="/users/item/${item.id}">View</a>
-                                        </td>
-                                        <td>
-                                            <a href="#">Delete</a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>${item.name}</td>
+                                            <td>${item.unitPrice}</td>
+                                            <td>${item.description}</td>
+                                            <td>
+                                                <a href="/users/item/${item.id}">View</a>
+                                            </td>
+                                            <td>
+                                                <form:form action="/users/item/delete/${item.id}" method="post">
+                                                    <input class="btn btn-warning" type="submit" value="Delete"
+                                                </form:form>
+                                            </td>
+                                        </tr>
                                     </c:forEach>
                                     </tbody>
                                     <tr>

@@ -1,10 +1,8 @@
 package com.wladek.pktcard.web.api;
 
-import com.wladek.pktcard.domain.Item;
-import com.wladek.pktcard.pojo.ItemDto;
-import com.wladek.pktcard.pojo.LoginDetails;
-import com.wladek.pktcard.pojo.SchoolDetails;
+import com.wladek.pktcard.pojo.*;
 import com.wladek.pktcard.service.SchoolService;
+import com.wladek.pktcard.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +18,8 @@ public class MobileApi {
 
     @Autowired
     SchoolService schoolService;
+    @Autowired
+    StudentService studentService;
 
     @RequestMapping(value = "/school_login" , produces = "application/json", consumes = "application/json")
     @ResponseBody
@@ -39,5 +39,19 @@ public class MobileApi {
         List<ItemDto> itemDtos = schoolService.getSchoolItems(schoolCode);
         ItemDto[] itemArray = new ItemDto[itemDtos.size()];
         return itemDtos.toArray(itemArray);
+    }
+
+    @RequestMapping(value = "/student_checkout" , produces = "application/json" , consumes = "application/json")
+    @ResponseBody
+    public CheckOutResponse checkout(@RequestBody CheckOutDetails checkOutDetails){
+        CheckOutResponse response = schoolService.checkOut(checkOutDetails);
+        return response;
+    }
+
+    @RequestMapping(value = "/register_card" , produces = "application/json" , consumes = "application/json")
+    @ResponseBody
+    public CardDetailDto registerCard(@RequestBody CardRegRequestDto cardDto){
+        CardDetailDto cardDetailDto = studentService.registerCard(cardDto);
+        return cardDetailDto;
     }
 }

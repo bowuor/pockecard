@@ -16,4 +16,5 @@ import java.util.List;
 public interface ItemRepo extends JpaRepository<Item , Long>{
     Page<Item> findBySchool(Pageable pageable , School school);
     List<Item> findBySchool(School school);
+    Item findByItemCode(String itemCode);
 }

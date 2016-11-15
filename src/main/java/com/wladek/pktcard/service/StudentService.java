@@ -2,6 +2,8 @@ package com.wladek.pktcard.service;
 
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.Student;
+import com.wladek.pktcard.pojo.CardDetailDto;
+import com.wladek.pktcard.pojo.CardRegRequestDto;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -14,4 +16,5 @@ public interface StudentService {
     public Student getOne(Long id);
     public List<Student> findAll();
     public Page<Student> findBySchool(int page , int size , School school);
+    public CardDetailDto registerCard(CardRegRequestDto cardDto);
 }

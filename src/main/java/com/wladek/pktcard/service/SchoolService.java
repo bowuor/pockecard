@@ -2,9 +2,7 @@ package com.wladek.pktcard.service;
 
 import com.wladek.pktcard.domain.Item;
 import com.wladek.pktcard.domain.School;
-import com.wladek.pktcard.pojo.ItemDto;
-import com.wladek.pktcard.pojo.LoginDetails;
-import com.wladek.pktcard.pojo.SchoolDetails;
+import com.wladek.pktcard.pojo.*;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -20,4 +18,5 @@ public interface SchoolService {
     public SchoolDetails getBySchoolCode(SchoolDetails schoolDetails);
     public SchoolDetails authSchoolAdmin(LoginDetails loginDetails);
     public List<ItemDto> getSchoolItems(String schoolCode);
+    public CheckOutResponse checkOut(CheckOutDetails checkOutDetails);
 }
