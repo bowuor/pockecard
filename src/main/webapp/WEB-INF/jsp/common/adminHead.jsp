@@ -52,7 +52,9 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="/users/logout" class="btn btn-default btn-flat">Sign out</a>
+                                <form:form method="post" action="/users/logout">
+                                    <input class="btn btn-default btn-flat" type="submit" value="Sign out">
+                                </form:form>
                             </div>
                         </li>
                     </ul>
