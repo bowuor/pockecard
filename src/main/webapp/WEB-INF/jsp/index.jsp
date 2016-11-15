@@ -179,7 +179,7 @@
                     <div class="hide" data-form-alert-success="true">Thanks for filling out the form!</div>
                 </div>
 
-                <form action="www.pockecard.php" method="post" data-form-title="POCKECARD CONTACT FORM">
+                <form:form action="/" method="get" data-form-title="POCKECARD CONTACT FORM">
                     <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>
@@ -192,7 +192,7 @@
                     <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-4" style="float: right">
                         <input type="submit" class="form-control" value="SEND">
                     </div>
-                </form>
+                </form:form>
 
             </div>
         </div>
