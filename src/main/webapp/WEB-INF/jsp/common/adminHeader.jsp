@@ -35,6 +35,7 @@
 <script type="application/javascript" src="/resources/js/ie10-viewport-bug-workaround.js"></script>
 <script type="text/javascript" src="/resources/js/admin/jquery.slimscroll.js"></script>
 <script type="text/javascript" src="/resources/js/admin/jquery.tablesorter.js"></script>
+<script src="https://use.fontawesome.com/d9e5662162.js"></script>
 <script type="text/javascript" src="/resources/js/admin/app.min.js"></script>
 <script type="text/javascript" src="/resources/js/admin/application.js"></script>
 <script type="text/javascript" src="/resources/js/admin/datepicker/js/bootstrap-datepicker.js"></script>

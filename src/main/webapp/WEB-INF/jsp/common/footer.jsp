@@ -17,8 +17,8 @@
                 <h3>Partners</h3>
                 <ul class="no-list-style footer-navigate-section">
                     <li><a href="https://www.necxuss.co.ke" target="_blank">Necxuss Technologies</a></li>
-                    <!--<li><a href="#">Education Ministry</a></li>
-                    <li><a href="#">KNUT</a></li>-->
+                    <li><a href="#">Technical University of Kenya</a></li>
+                    <!--<li><a href="#">KNUT</a></li>-->
                 </ul>
             </div>
             <div class="col-footer col-md-3 col-xs-6">

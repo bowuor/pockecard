@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/head.jsp">
-        <jsp:param name="title" value="POCKECARD | FAQ"/>
+        <jsp:param name="title" value="PockeCard | FAQ"/>
     </jsp:include>
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>

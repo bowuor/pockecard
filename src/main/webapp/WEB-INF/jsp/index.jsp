@@ -6,13 +6,14 @@
 <html lang="en">
 <head>
     <jsp:include page="/WEB-INF/jsp/common/head.jsp">
-        <jsp:param name="title" value="POCKECARD"/>
+        <jsp:param name="title" value="PockeCard | Home"/>
     </jsp:include>
     <link type="text/css" href="/resources/css/carousel.css" rel="stylesheet">
 </head>
 
-<body>
 <jsp:include page="/WEB-INF/jsp/common/topmenu.jsp"/>
+
+<body>
 
     <!-- Carousel
     ================================================== -->
@@ -55,38 +56,6 @@
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
         <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    </div>
-</section>
-
-<%--services secton--%>
-<section id="services">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="section-title">
-                    <h1 class="heading bolder">Services</h1>
-                    <hr>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
-                <img src="/resources/images/images.png">
-                <h3>PAYMENTS</h3>
-                <hr>
-                <p>PockeCard facilitates making payments for the many transactions made by students throughout their daily activities and stay at schools.<br><br>We relieve schools from the extra burden of managing students' finances leaving only the core functions.</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
-                <img src="/resources/images/remmit.jpg">
-                <h3>REMITTANCES</h3>
-                <hr>
-                <p>PockeCard offers a means for parents to remit finances to their students at their own convenience and at preferred intervals.<br><br> This eliminates the worries of giving too much money to students and risk of loss.</p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="1s">
-                <img src="/resources/images/control.jpg">
-                <h3>CONTROL</h3>
-                <hr>
-                <p>PockeCard ensure students' expenses are monitored by the parents and at the same time controlled by the school to ensure good health and co-existence.<br><br> This gives both parties peace of mind knowing that their students are safer with no avenue for vices.</p>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -143,6 +112,38 @@
     </div>
 </section>
 
+<%--services section--%>
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h1 class="heading bolder">Services</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+                <img src="/resources/images/images.png">
+                <h3>PAYMENTS</h3>
+                <hr>
+                <p>PockeCard facilitates making payments for the many transactions made by students throughout their daily activities and stay at schools.<br><br>We relieve schools from the extra burden of managing students' finances leaving only the core functions.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+                <img src="/resources/images/remmit.jpg">
+                <h3>REMITTANCES</h3>
+                <hr>
+                <p>PockeCard offers a means for parents to remit finances to their students at their own convenience and at preferred intervals.<br><br> This eliminates the worries of giving too much money to students and risk of loss.</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="1s">
+                <img src="/resources/images/control.jpg">
+                <h3>CONTROL</h3>
+                <hr>
+                <p>PockeCard ensure students' expenses are monitored by the parents and at the same time controlled by the school to ensure good health and co-existence.<br><br> This gives both parties peace of mind knowing that their students are safer with no avenue for vices.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- contact section -->
 <section id="contact">
     <div class="container">
@@ -174,8 +175,11 @@
             <div class="col-md-6 col-sm-12">
                 <h3><i data-wow-delay="0.6s"></i>Drop us a message:</h3>
 
-                <form action="mailto:info@pockecard.com" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
+                <div data-form-alert="true">
+                    <div class="hide" data-form-alert-success="true">Thanks for filling out the form!</div>
+                </div>
 
+                <form action="www.pockecard.php" method="post" data-form-title="POCKECARD CONTACT FORM">
                     <div class="col-md-6 col-sm-6">
                         <input type="text" class="form-control" placeholder="Name" name="name">
                     </div>
@@ -186,9 +190,10 @@
                         <textarea class="form-control" placeholder="Message/comment/suggestion" rows="7" name="message"></textarea>
                     </div>
                     <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-4" style="float: right">
-                        <input type="submit" class="form-control" value="SEND MESSAGE">
+                        <input type="submit" class="form-control" value="SEND">
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -205,6 +210,7 @@
 <script src="/resources/components/jquery/dist/jquery.min.js"></script>
 <script src="/resources/js/smoothscroll.js"></script>
 <script src="/resources/components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/d9e5662162.js"></script>
 <script src="/resources/components/holderjs/holder.js"></script>
 <script src="/resources/js/wow.min.js"></script>
 <script src="/resources/js/jquery.bxSlider.js"></script>
