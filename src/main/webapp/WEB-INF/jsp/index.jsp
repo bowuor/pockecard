@@ -174,7 +174,6 @@
             </div>
             <div class="col-md-6 col-sm-12">
                 <h3><i data-wow-delay="0.6s"></i>Drop us a message:</h3>
-
                 <div data-form-alert="true">
                     <div class="hide" data-form-alert-success="true">Thanks for filling out the form!</div>
                 </div>
