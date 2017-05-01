@@ -159,8 +159,8 @@
             <div class="col-md-6 col-sm-12 contact-info">
                 <div class="col-md-3 col-xs-6 text-center">
                     <h3><i data-wow-delay="0.6s"></i>Call us:</h3>
-                    <p>0725-980-165</p>
-                    <p>0704-033-581</p>
+                    <p>0705-712-841</p>
+                    <p>0726-457-704</p>
                 </div>
                 <div class="col-md-12 col-sm-8">
                     <h3><i data-wow-delay="0.6s"></i>Follow us:</h3>

@@ -16,9 +16,9 @@
             <div class="col-footer col-md-3 col-xs-6">
                 <h3>Partners</h3>
                 <ul class="no-list-style footer-navigate-section">
-                    <li><a href="https://www.necxuss.co.ke" target="_blank">Necxuss Technologies</a></li>
+                    <!--<li><a href="https://www.necxuss.co.ke" target="_blank">Necxuss Technologies</a></li>
                     <li><a href="#">Technical University of Kenya</a></li>
-                    <!--<li><a href="#">KNUT</a></li>-->
+                    <li><a href="#">KNUT</a></li>-->
                 </ul>
             </div>
             <div class="col-footer col-md-3 col-xs-6">
@@ -34,15 +34,15 @@
             <div class="col-footer col-md-4 col-xs-6">
                 <h3>Contacts</h3>
                 <p class="contact-us-details">
-                    <b>Address:</b> 21665 00100, Nairobi<br/>
-                    <b>Phone:</b> (+254)725 980 165 / 704 033 581<br/>
+                    <b>Address:</b> 26060-00504, Nairobi<br/>
+                    <b>Phone:</b> 0705712841/0726457704<br/>
                     <b>Email:</b> <a href="mailto:info@pockecard.com">info@pockecard.com</a>
                 </p>
             </div>
             <div class="col-footer col-md-2 col-xs-6">
                 <h3>Social</h3>
                 <ul style="list-style: none;">
-                    <li><a href="https://facebook.com/PockeCardKE" target="_blank"><img src="/resources/images/facebook.png"></a></li>
+                    <li><a href="https://facebook.com/PockeCard" target="_blank"><img src="/resources/images/facebook.png"></a></li>
                     <li><a href="https://twitter.com/PockeCardKE" target="_blank"><img src="/resources/images/twitter.png"></a></li>
 
                     <%--<li><a href="#"><img src="/resources/images/instagram.png"></a></li>
@@ -55,7 +55,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="footer-copyright">Copyright &copy;2016 PockeCard. All rights reserved.</div>
+                <div class="footer-copyright">Copyright &copy;2017 PockeCard. All rights reserved.</div>
             </div>
         </div>
     </div>
