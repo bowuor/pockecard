@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
+import org.springframework.security.web.csrf.CsrfFilter;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -77,7 +78,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().hasRole(UserRole.ADMIN.name());
 
 
-//        http.csrf().disable();
+        http.csrf().disable();
+        http.addFilterAfter(new CsrfTokenResponseHeaderBindingFilter(), CsrfFilter.class);
     }
 
     @Override

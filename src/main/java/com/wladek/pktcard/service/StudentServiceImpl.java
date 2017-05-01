@@ -4,6 +4,7 @@ import com.wladek.pktcard.domain.Card;
 import com.wladek.pktcard.domain.School;
 import com.wladek.pktcard.domain.Student;
 import com.wladek.pktcard.pojo.CardDetailDto;
+import com.wladek.pktcard.pojo.CardRegRequestDto;
 import com.wladek.pktcard.repository.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -48,14 +49,14 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public CardDetailDto registerCard(String studentNo, String pinNo) {
+    public CardDetailDto registerCard(CardRegRequestDto cardDto) {
 
-        Student studentInDb = studentRepo.findByRegNumber(studentNo);
+        Student studentInDb = studentRepo.findByRegNumber(cardDto.getStudentNo());
 
         CardDetailDto dto = new CardDetailDto();
 
         if (studentInDb == null){
-            dto.setStudentNo(studentNo);
+            dto.setStudentNo(cardDto.getStudentNo());
             dto.setResult("No student registered with that registration number.");
 
             return  dto;
@@ -80,7 +81,7 @@ public class StudentServiceImpl implements StudentService{
         newCard = cardService.create(newCard);
 
         dto.setCardNo(newCard.getCardNo());
-        dto.setStudentNo(studentNo);
+        dto.setStudentNo(cardDto.getStudentNo());
 
         return dto;
     }
