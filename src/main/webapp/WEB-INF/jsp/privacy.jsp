@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>What is this Privacy Policy for?</h4>
-                <p>This privacy policy is for this website [www.pockecard.com] and served by [NECXUSS TECHNOLOGIES LTD] and governs the privacy of its users who choose to use it.</p>
+                <p>This privacy policy is for this website [www.pockecard.com] and served by [POCKECARD LTD] and governs the privacy of its users who choose to use it.</p>
                 <p>The policy sets out the different areas where user privacy is concerned and outlines the obligations & requirements of the users, the website and website owners. Furthermore the way this website processes, stores and protects user data and information will also be detailed within this policy.</p>
                 <h4>The Website</h4>
                 <p>This website and it's owners take a proactive approach to user privacy and ensure the necessary steps are taken to protect the privacy of its users throughout their visiting experience. This website comply's to all national laws and requirements for user privacy.</p>
